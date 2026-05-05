@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Mohamed Fouad | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        scroll-behavior: smooth;
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: #030014;
+        color: white;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030014;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #8b5cf6, #6d28d9);
+        border-radius: 10px;
+        border: 2px solid #030014;
+      }
+      .grid-bg {
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(139, 92, 246, 0.08) 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+      }
+      .nav-blur {
+        backdrop-filter: blur(14px);
+        background: rgba(3, 0, 20, 0.82);
+      }
+      .btn-primary {
+        background: linear-gradient(45deg, #8b5cf6, #6d28d9);
+        transition: 0.3s;
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(139, 92, 246, 0.25);
+      }
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: -1;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-18px);
+        }
+      }
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+      }
+      .nav-container {
+        position: relative;
+        background: rgba(139, 92, 246, 0.03);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        padding: 0 1.5rem;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav-link.active {
+        color: #a78bfa !important;
+        position: relative;
+      }
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #8b5cf6;
+        border-radius: 2px;
+      }
+      .tab-container {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 8px;
+      }
+      .tab-btn {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #94a3b8;
+        border-radius: 16px;
+      }
+      .tab-btn.active {
+        background: rgba(139, 92, 246, 0.15);
+        color: white;
+        box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.2);
+        border: 1px solid rgba(139, 92, 246, 0.4);
+      }
+      .content-pane {
+        display: none;
+        animation: fadeIn 0.6s ease-out;
+      }
+      .content-pane.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .project-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .btn-details {
+        background: transparent;
+        border: 1px solid #8b5cf6;
+        color: #a78bfa;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .btn-details:hover {
+        background: #8b5cf6;
+        color: white;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+      }
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .icon-github:hover {
+        background: #000;
+        border-color: #333;
+        color: #fff;
+      }
+      .icon-linkedin:hover {
+        background: #0077b5;
+        border-color: #0077b5;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <div
+      class="glow-orb w-64 h-64 md:w-96 md:h-96 bg-violet-600/10 top-[-5%] right-[-5%]"
+    ></div>
+    <div
+      class="glow-orb w-64 h-64 md:w-96 md:h-96 bg-blue-600/10 bottom-[10%] left-[-5%]"
+    ></div>
+    <nav class="fixed top-0 w-full z-[100] px-4">
+      <div class="nav-container nav-blur">
+        <h1
+          class="hidden md:block text-lg md:text-2xl font-extrabold tracking-tight text-violet-500"
+        >
+          M.FOUAD<span class="text-white">.</span>
+        </h1>
+        <ul
+          class="nav-links-list flex gap-8 text-[10px] font-semibold uppercase tracking-[0.2em] w-full md:w-auto justify-between md:justify-start"
+        >
+          <li>
+            <a href="#home" class="nav-link text-white/70 transition">Home</a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link text-white/70 transition">About</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="nav-link text-white/70 transition"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="nav-link text-white/70 transition"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <div class="hidden md:flex items-center gap-4">
+          <a
+            href="#contact"
+            class="px-4 py-1.5 rounded-full border border-violet-500/40 text-[10px] md:text-xs font-medium hover:bg-violet-500/10 transition text-white"
+            >Let's Talk</a
+          >
+        </div>
+      </div>
+    </nav>
+    <section id="home" class="grid-bg px-4 md:px-6 lg:px-24">
+      <div
+        class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center w-full pt-10 md:pt-16"
+      >
+        <div class="order-2 lg:order-1 text-center lg:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/20 bg-violet-500/5 mb-4 mx-auto lg:mx-0"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-violet-500"
+              ></span>
+            </span>
+            <span
+              class="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-300"
+              >Available for New Projects</span
+            >
+          </div>
+          <h2
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight"
+          >
+            Backend <br /><span class="text-violet-500">Developer</span>
+          </h2>
+          <p
+            class="text-gray-400 text-sm md:text-base mt-4 leading-relaxed max-w-lg mx-auto lg:mx-0"
+          >
+            Specializing in building robust, scalable server-side architectures
+            and efficient database solutions.
+          </p>
+          <div
+            class="flex flex-wrap justify-center lg:justify-start gap-4 mt-8"
+          >
+            <a
+              href="#portfolio"
+              class="px-6 py-3 rounded-xl btn-primary font-bold text-xs flex items-center gap-2 text-white"
+              >Projects <i class="fa-solid fa-arrow-right text-[10px]"></i
+            ></a>
+            <a
+              href="#contact"
+              class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 font-bold text-xs hover:bg-white/10 transition text-white"
+              >Contact</a
+            >
+          </div>
+          <div class="flex justify-center lg:justify-start gap-4 mt-8">
+            <a
+              href="https://github.com/MohamedFouad22"
+              class="social-icon icon-github"
+              target="_blank"
+              ><i class="fa-brands fa-github text-lg"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/mohamed-fouad-16a93831b/"
+              class="social-icon icon-linkedin"
+              target="_blank"
+              ><i class="fa-brands fa-linkedin-in text-lg"></i
+            ></a>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 flex justify-center relative">
+          <div
+            class="absolute inset-0 bg-violet-600/20 blur-[80px] md:blur-[100px] rounded-full"
+          ></div>
+          <img
+            src="./assets/Animation1.gif"
+            alt="Mohamed Fouad"
+            class="w-4/5 md:w-full max-w-sm md:max-w-md relative z-10 floating"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about" class="px-4 md:px-6 lg:px-24 bg-[#05011a]">
+      <div class="max-w-4xl mx-auto w-full text-center">
+        <div class="mb-6">
+          <h2 class="text-violet-500 font-bold text-3xl md:text-5xl mb-2">
+            Hello, I'm
+          </h2>
+          <h3
+            class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-white"
+          >
+            Mohamed Fouad
+          </h3>
+          <div class="h-1.5 w-24 bg-violet-500 rounded-full mx-auto"></div>
+        </div>
+        <p class="text-gray-400 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+          I am a dedicated
+          <span class="text-white font-semibold">Backend Engineer</span> with a
+          passion for architecting clean, efficient, and scalable systems. My
+          expertise lies in the Node.js ecosystem, using TypeScript to build
+          secure APIs.
+        </p>
+        <div
+          class="bg-violet-950/20 border border-violet-500/30 rounded-2xl p-5 mb-10 backdrop-blur-sm inline-block w-full max-w-2xl text-white"
+        >
+          <p
+            class="text-gray-300 text-sm md:text-base italic flex items-center justify-center gap-3"
+          >
+            <i class="fa-solid fa-quote-left text-violet-500 text-xl"></i
+            >Focusing on clean code and modular architecture to transform
+            complex business requirements into high-performance digital
+            solutions.<i
+              class="fa-solid fa-quote-right text-violet-500 text-xl"
+            ></i>
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button
+            class="bg-violet-600 hover:bg-violet-700 px-8 py-3.5 rounded-xl flex items-center gap-3 transition font-bold text-sm shadow-lg shadow-violet-600/30 text-white"
+          >
+            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+          </button>
+          <a
+            href="#portfolio"
+            class="border border-violet-500/40 hover:bg-violet-500/10 text-violet-300 px-8 py-3.5 rounded-xl flex items-center gap-3 transition font-bold text-sm"
+            ><i class="fa-solid fa-code"></i> View Projects</a
+          >
+        </div>
+      </div>
+    </section>
+    <section id="portfolio" class="px-4 md:px-6 lg:px-24 bg-[#030014] py-24">
+      <div class="w-[90%] max-w-[1400px] mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
+            Portfolio <span class="text-violet-500">Showcase</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+            Explore my journey through projects, certifications, and technical
+            expertise.
+          </p>
+        </div>
+        <div class="flex justify-center mb-16">
+          <div class="tab-container flex w-full max-w-4xl">
+            <button
+              onclick="switchTab('projects')"
+              id="btn-projects"
+              class="tab-btn active flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
+            >
+              <i class="fa-solid fa-code text-lg"></i> Projects
+            </button>
+            <button
+              onclick="switchTab('certificates')"
+              id="btn-certificates"
+              class="tab-btn flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
+            >
+              <i class="fa-solid fa-award text-lg"></i> Certificates
+            </button>
+            <button
+              onclick="switchTab('tech')"
+              id="btn-tech"
+              class="tab-btn flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
+            >
+              <i class="fa-solid fa-layer-group text-lg"></i> Tech Stack
+            </button>
+          </div>
+        </div>
+        <div id="projects" class="content-pane active">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
+            >
+              <div
+                class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
+              >
+                <img
+                  src="./assets/Social Media App.jpg"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+              <h4 class="text-xl font-bold mb-2">Social Media Application</h4>
+              <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
+                Advanced backend system featuring JWT authentication, real-time
+                notifications, and media handling via AWS S3.
+              </p>
+              <div
+                class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
+              >
+                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+                  <span
+                    class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
+                    >NODEJS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
+                    >MONGO</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
+                    >TS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
+                    >SOCKET.IO</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
+                    >AWS</span
+                  >
+                </div>
+                <a
+                  href="./social.html"
+                  class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div
+              class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
+            >
+              <div
+                class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
+              >
+                <img
+                  src="./assets/Sara7a App.png"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <h4 class="text-xl font-bold mb-2">Sara7a App</h4>
+              <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
+                Secure messaging platform with anonymous feedback and
+                cloud-based media storage.
+              </p>
+              <div
+                class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
+              >
+                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+                  <span
+                    class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
+                    >NODEJS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
+                    >MONGO</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
+                    >JS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-sky-500/10 text-sky-400 text-[8px] font-bold rounded border border-sky-500/20"
+                    >CLOUDINARY</span
+                  >
+                </div>
+                <a
+                  href="./sara7a.html"
+                  class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="certificates" class="content-pane">
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div
+              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+            >
+              <div
+                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
+              >
+                <img
+                  src="./assets/Social Media App.jpg"
+                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="px-4 pb-4">
+                <h4 class="text-2xl font-extrabold mb-1">Route Academy</h4>
+                <p class="text-violet-400 font-semibold mb-3">
+                  Backend Engineering Certification
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Comprehensive program focused on enterprise-level Node.js and
+                  NestJS.
+                </p>
+              </div>
+            </div>
+            <div
+              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+            >
+              <div
+                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
+              >
+                <img
+                  src="https://via.placeholder.com/800x600/1a1a2e/ffffff?text=Delta+University+Degree"
+                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="px-4 pb-4">
+                <h4 class="text-2xl font-extrabold mb-1">Delta University</h4>
+                <p class="text-violet-400 font-semibold mb-3">
+                  BSc in Artificial Intelligence
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Specialization in Cybersecurity with focus on offensive
+                  security.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tech" class="content-pane">
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+          >
+            <div
+              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            >
+              <i
+                class="fa-brands fa-node-js text-5xl text-green-500 mb-4 group-hover:scale-110 transition"
+              ></i>
+              <p
+                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              >
+                Node.js
+              </p>
+            </div>
+            <div
+              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            >
+              <i
+                class="fa-solid fa-code text-5xl text-blue-400 mb-4 group-hover:scale-110 transition"
+              ></i>
+              <p
+                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              >
+                TypeScript
+              </p>
+            </div>
+            <div
+              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            >
+              <i
+                class="fa-solid fa-server text-5xl text-red-500 mb-4 group-hover:scale-110 transition"
+              ></i>
+              <p
+                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              >
+                NestJS
+              </p>
+            </div>
+            <div
+              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            >
+              <i
+                class="fa-solid fa-database text-5xl text-green-400 mb-4 group-hover:scale-110 transition"
+              ></i>
+              <p
+                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              >
+                MongoDB
+              </p>
+            </div>
+            <div
+              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            >
+              <i
+                class="fa-brands fa-aws text-5xl text-orange-400 mb-4 group-hover:scale-110 transition"
+              ></i>
+              <p
+                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              >
+                AWS S3
+              </p>
+            </div>
+            <div
+              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            >
+              <i
+                class="fa-solid fa-shield-halved text-5xl text-violet-400 mb-4 group-hover:scale-110 transition"
+              ></i>
+              <p
+                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              >
+                Security
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="px-4 md:px-6 lg:px-24 bg-[#05011a] py-24">
+      <div class="max-w-6xl mx-auto w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div
+            class="text-center lg:text-left flex flex-col items-center lg:items-start"
+          >
+            <h2
+              class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white"
+            >
+              Let's <span class="text-violet-500">Connect</span>
+            </h2>
+            <p
+              class="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-xl"
+            >
+              Have a project in mind or just want to discuss backend
+              architecture? I'm always open to interesting collaborations.
+            </p>
+            <div class="flex flex-col gap-4 w-full max-w-md">
+              <div
+                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-envelope text-violet-400 text-lg"></i>
+                </div>
+                <div class="text-left">
+                  <p
+                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+                  >
+                    Email Me
+                  </p>
+                  <p class="text-white font-medium text-sm truncate">
+                    mohmed.foouad@gmail.com
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
+                >
+                  <i class="fa-brands fa-whatsapp text-violet-400 text-lg"></i>
+                </div>
+                <div class="text-left">
+                  <p
+                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+                  >
+                    WhatsApp
+                  </p>
+                  <a
+                    href="https://wa.me/201203435021"
+                    target="_blank"
+                    class="text-white font-medium text-sm transition hover:text-violet-400"
+                    >+20 1203435021</a
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in text-violet-400 text-lg"
+                  ></i>
+                </div>
+                <div class="text-left">
+                  <p
+                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+                  >
+                    LinkedIn
+                  </p>
+                  <a
+                    href="https://www.linkedin.com/in/mohamed-fouad-16a93831b/"
+                    target="_blank"
+                    class="text-white font-medium text-sm transition hover:text-violet-400"
+                    >Mohamed Fouad</a
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
+                >
+                  <i class="fa-brands fa-github text-violet-400 text-lg"></i>
+                </div>
+                <div class="text-left">
+                  <p
+                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+                  >
+                    GitHub
+                  </p>
+                  <a
+                    href="https://github.com/MohamedFouad22"
+                    target="_blank"
+                    class="text-white font-medium text-sm transition hover:text-violet-400"
+                    >Mohamed Fouad</a
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
+                >
+                  <i
+                    class="fa-solid fa-location-dot text-violet-400 text-lg"
+                  ></i>
+                </div>
+                <div class="text-left">
+                  <p
+                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+                  >
+                    Location
+                  </p>
+                  <p class="text-white font-medium text-sm">
+                    6 Of October, Egypt
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md flex flex-col justify-center items-center text-center max-w-md mx-auto w-full lg:max-w-none"
+          >
+            <div
+              class="w-20 h-20 bg-violet-500/20 rounded-full flex items-center justify-center mb-6 ring-4 ring-violet-500/10"
+            >
+              <i class="fa-solid fa-paper-plane text-violet-400 text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">
+              Ready to build something great?
+            </h3>
+            <p class="text-gray-400 mb-8">
+              Contact me directly for business inquiries, collaboration, or just
+              a technical chat.
+            </p>
+            <div class="w-full space-y-4">
+              <button
+                onclick="copyEmail()"
+                class="w-full group bg-white/5 border border-white/10 hover:border-violet-500/50 p-4 rounded-2xl flex items-center justify-between transition-all"
+              >
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fa-solid fa-copy text-gray-500 group-hover:text-violet-400"
+                  ></i
+                  ><span id="emailText" class="text-white font-medium text-sm"
+                    >mohmed.foouad@gmail.com</span
+                  >
+                </div>
+                <span
+                  class="text-[10px] font-bold uppercase text-violet-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >Copy</span
+                >
+              </button>
+              <a
+                href="https://wa.me/201203435021"
+                target="_blank"
+                class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-violet-600/20"
+                ><i class="fa-brands fa-whatsapp text-lg"></i> Send WhatsApp
+                Message</a
+              >
+            </div>
+            <p
+              class="mt-8 text-[11px] text-gray-500 font-bold uppercase tracking-[0.2em]"
+            >
+              Average Response Time:
+              <span class="text-green-500">&lt; 2 Hours</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="py-10 text-center border-t border-white/5">
+      <p class="text-gray-500 text-xs font-medium tracking-widest uppercase">
+        © 2026 Mohamed Fouad . Crafted with passion.
+      </p>
+    </footer>
+    <script>
+      function switchTab(tabId) {
+        document
+          .querySelectorAll(".content-pane")
+          .forEach((pane) => pane.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById(tabId).classList.add("active");
+        document.getElementById("btn-" + tabId).classList.add("active");
+      }
+      function copyEmail() {
+        const email = "mohmed.foouad@gmail.com";
+        navigator.clipboard.writeText(email);
+        const emailText = document.getElementById("emailText");
+        emailText.innerText = "Email Copied!";
+        emailText.classList.add("text-violet-400");
+        setTimeout(() => {
+          emailText.innerText = email;
+          emailText.classList.remove("text-violet-400");
+        }, 2000);
+      }
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 150) {
+            current = section.getAttribute("id");
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
