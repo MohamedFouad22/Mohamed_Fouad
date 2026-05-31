@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Details | Nova Chat Application</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: #030014;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .grid-bg {
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(139, 92, 246, 0.06) 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+
+      .tech-badge {
+        background: rgba(139, 92, 246, 0.08);
+        border: 1px solid rgba(139, 92, 246, 0.18);
+        transition: 0.3s ease;
+      }
+
+      .tech-badge:hover {
+        transform: translateY(-3px);
+        background: rgba(139, 92, 246, 0.16);
+      }
+
+      .feature-item {
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .feature-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #8b5cf6;
+        box-shadow: 0 0 15px #8b5cf6;
+      }
+
+      .gradient-text {
+        background: linear-gradient(to right, #ffffff, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(3, 0, 20, 0.9),
+          rgba(3, 0, 20, 0.2)
+        );
+        border-radius: 1.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="grid-bg min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+      <div class="mb-12">
+        <a
+          href="../index.html"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl glass-card text-sm font-semibold hover:bg-white/10 transition"
+        >
+          <i class="fa-solid fa-arrow-left text-violet-400"></i>
+          Back
+        </a>
+
+        <div class="mt-5 flex items-center gap-2 text-sm text-gray-500">
+          <span>Projects</span>
+          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          <span class="text-violet-400 font-medium">Nova Chat Application</span>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-14 items-start">
+        <div>
+          <h1
+            class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 gradient-text"
+          >
+            Nova Chat <br />
+            <span class="text-violet-500">Application</span>
+          </h1>
+
+          <div class="w-24 h-1 rounded-full bg-violet-600 mb-8"></div>
+
+          <p class="text-gray-400 text-lg leading-relaxed mb-10">
+            A production-ready, highly secure real-time messaging platform
+            backend engine. Nova Chat features an advanced cloud architecture
+            engineered to deliver instantaneous communication, military-grade
+            request validation, and scalable media streaming. Designed to
+            process high-frequency concurrent operations seamlessly with zero
+            data lag.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-5 mb-10">
+            <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+              <div
+                class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-code text-violet-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-2xl font-bold">10+</p>
+                <p
+                  class="text-xs uppercase tracking-[2px] text-gray-500 font-bold"
+                >
+                  Core Technologies
+                </p>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+              <div
+                class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-bolt text-violet-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-2xl font-bold">Real-Time</p>
+                <p
+                  class="text-xs uppercase tracking-[2px] text-gray-500 font-bold"
+                >
+                  Engine Status
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4 mb-12">
+            <a
+              href="https://documenter.getpostman.com/view/43128963/2sBXqGqgbH"
+              target="_blank"
+              class="px-8 py-4 rounded-2xl bg-violet-600 hover:bg-violet-700 transition font-bold flex items-center gap-3 shadow-lg shadow-violet-600/20"
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              API Documentation
+            </a>
+
+            <a
+              href="https://github.com/MohamedFouad22/Social-Media-Application.git"
+              target="_blank"
+              class="px-8 py-4 rounded-2xl glass-card hover:bg-white/10 transition font-bold flex items-center gap-3"
+            >
+              <i class="fa-brands fa-github"></i>
+              Github Repo
+            </a>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold flex items-center gap-3 mb-6">
+              <i class="fa-solid fa-layer-group text-violet-500"></i>
+              Engine Architecture Stack
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-brands fa-node-js text-green-500"></i>
+                Node.js
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-solid fa-code text-blue-500"></i>
+                TypeScript
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-solid fa-server text-blue-400"></i>
+                Express.js
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-solid fa-bolt text-yellow-500"></i>
+                Socket.io
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-brands fa-aws text-orange-400"></i>
+                AWS S3
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-solid fa-shield text-red-400"></i>
+                Zod Validation
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-solid fa-key text-gray-300"></i>
+                JWT Auth
+              </span>
+
+              <span
+                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
+              >
+                <i class="fa-solid fa-database text-green-400"></i>
+                MongoDB
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="glass-card rounded-[2rem] p-4">
+            <div
+              class="hero-image relative rounded-[1.5rem] overflow-hidden aspect-video border border-white/5"
+            >
+              <img
+                src="../assets/Nova ChatApllicatio.png"
+                alt="Nova Chat Preview"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div class="glass-card rounded-[2rem] p-8 md:p-10">
+            <h3 class="text-2xl font-bold flex items-center gap-3 mb-8">
+              <i class="fa-solid fa-star text-yellow-500"></i>
+              Engine Core Capabilities
+            </h3>
+
+            <div class="space-y-7">
+              <div
+                class="feature-item p-5 rounded-2xl bg-violet-500/5 border border-violet-500/20"
+              >
+                <h4 class="font-bold text-violet-300 mb-2">
+                  Real-time Messaging Protocol
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Persistent full-duplex bi-directional communication channels
+                  powered by Socket.io, featuring low-latency typing indicators,
+                  instant message delivery statuses (Sent, Delivered, Seen), and
+                  real-time online presence state tracking.
+                </p>
+              </div>
+
+              <div class="feature-item">
+                <h4 class="font-bold text-white mb-2">
+                  Advanced Cryptographic Authentication
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  State-of-the-art secure authentication engine integrating JSON
+                  Web Tokens (JWT) with automated refresh token rotation
+                  strategies, alongside secure encrypted passport routing
+                  schemas.
+                </p>
+              </div>
+
+              <div class="feature-item">
+                <h4 class="font-bold text-white mb-2">
+                  Secure Media Streaming via AWS S3
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  High-performance media handling mechanism utilising AWS S3
+                  Presigned URLs, ensuring secure file uploads and downloads
+                  directly from the client side without clogging backend memory
+                  buffers.
+                </p>
+              </div>
+
+              <div class="feature-item">
+                <h4 class="font-bold text-white mb-2">
+                  Strict Schema & Memory Validation
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Type-safe runtime request interception enforced by TypeScript
+                  and Zod validation layers, blocking polluted or malicious
+                  payloads long before hitting the data persistence tier.
+                </p>
+              </div>
+
+              <div class="feature-item">
+                <h4 class="font-bold text-white mb-2">
+                  Modular Architectural Scalability
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Clean layer separation utilizing enterprise
+                  controller-service-repository patterns to comfortably isolate
+                  logic blocks, making it highly testable and linearly
+                  horizontally scalable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="border-t border-white/5 mt-20 py-10 text-center">
+      <p class="text-gray-500 text-sm font-medium uppercase tracking-[4px]">
+        © 2026 Mohamed Fouad . All Rights Reserved.
+      </p>
+    </footer>
+  </body>
+</html>
