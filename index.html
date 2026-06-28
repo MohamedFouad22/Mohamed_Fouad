@@ -546,24 +546,6 @@
             </div>
           </div>
         </div>
-        <div
-          id="imageModal"
-          class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm"
-        >
-          <button
-            id="closeModal"
-            class="absolute top-6 right-6 text-white text-4xl font-bold hover:text-violet-400 transition-colors"
-          >
-            &times;
-          </button>
-
-          <img
-            id="modalImage"
-            src=""
-            class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300"
-          />
-        </div>
-
         <div id="certificates" class="content-pane">
           <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div
@@ -574,7 +556,7 @@
               >
                 <img
                   src="./assets/Mohamed Ahmed Fouad.jpg"
-                  class="cert-img w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div class="px-4 pb-4">
@@ -594,7 +576,7 @@
               >
                 <img
                   src="./assets/Hard Advanced Node Js.jpeg"
-                  class="cert-img w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div class="px-4 pb-4">
@@ -617,7 +599,7 @@
               >
                 <img
                   src="./assets/Introduction to Git and GitHub.jpg"
-                  class="cert-img w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div class="px-4 pb-4">
@@ -633,7 +615,7 @@
             </div>
           </div>
         </div>
-        
+
         <div id="tech" class="content-pane">
           <div
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
@@ -1000,40 +982,6 @@
           }
         });
       });
-
-      const modal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
-      const closeModal = document.getElementById("closeModal");
-      const certImages = document.querySelectorAll(".cert-img");
-
-      certImages.forEach((img) => {
-        img.addEventListener("click", () => {
-          modal.classList.remove("hidden");
-          modalImg.src = img.src;
-          setTimeout(() => {
-            modalImg.classList.remove("scale-95");
-            modalImg.classList.add("scale-100");
-          }, 10);
-        });
-      });
-
-      closeModal.addEventListener("click", () => {
-        closeActiveModal();
-      });
-
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          closeActiveModal();
-        }
-      });
-
-      function closeActiveModal() {
-        modalImg.classList.remove("scale-100");
-        modalImg.classList.add("scale-95");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-        }, 200);
-      }
     </script>
   </body>
 </html>
