@@ -96,6 +96,12 @@
         );
         border-radius: 1.5rem;
       }
+
+      .method-post { background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); }
+      .method-get { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
+      .method-patch { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+      .method-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+      .method-socket { background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3); }
     </style>
   </head>
 
@@ -117,7 +123,7 @@
         </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-14 items-start">
+      <div class="grid lg:grid-cols-2 gap-14 items-start mb-16">
         <div>
           <h1
             class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 gradient-text"
@@ -137,35 +143,45 @@
             data lag.
           </p>
 
-          <div class="grid sm:grid-cols-2 gap-5 mb-10">
+          <div class="grid sm:grid-cols-3 gap-5 mb-10">
             <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
               <div
-                class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center"
+                class="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0"
               >
-                <i class="fa-solid fa-code text-violet-400 text-xl"></i>
+                <i class="fa-solid fa-code text-violet-400 text-lg"></i>
               </div>
               <div>
-                <p class="text-2xl font-bold">10+</p>
-                <p
-                  class="text-xs uppercase tracking-[2px] text-gray-500 font-bold"
-                >
-                  Core Technologies
+                <p class="text-xl font-bold">10+</p>
+                <p class="text-[10px] uppercase tracking-[1px] text-gray-500 font-bold">
+                  Technologies
                 </p>
               </div>
             </div>
 
             <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
               <div
-                class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center"
+                class="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0"
               >
-                <i class="fa-solid fa-bolt text-violet-400 text-xl"></i>
+                <i class="fa-solid fa-[#00ffc4] fa-network-wired text-violet-400 text-lg"></i>
               </div>
               <div>
-                <p class="text-2xl font-bold">Real-Time</p>
-                <p
-                  class="text-xs uppercase tracking-[2px] text-gray-500 font-bold"
-                >
-                  Engine Status
+                <p class="text-xl font-bold">30+</p>
+                <p class="text-[10px] uppercase tracking-[1px] text-gray-500 font-bold">
+                  API Endpoints
+                </p>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-bolt text-violet-400 text-lg"></i>
+              </div>
+              <div>
+                <p class="text-xl font-bold">Real-Time</p>
+                <p class="text-[10px] uppercase tracking-[1px] text-gray-500 font-bold">
+                  Socket Engine
                 </p>
               </div>
             </div>
@@ -198,60 +214,29 @@
             </h3>
 
             <div class="flex flex-wrap gap-3">
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-brands fa-node-js text-green-500"></i>
-                Node.js
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-brands fa-node-js text-green-500"></i> Node.js
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-solid fa-code text-blue-500"></i>
-                TypeScript
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-code text-blue-500"></i> TypeScript
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-solid fa-server text-blue-400"></i>
-                Express.js
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-server text-blue-400"></i> Express.js
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-solid fa-bolt text-yellow-500"></i>
-                Socket.io
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-yellow-500"></i> Socket.io
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-brands fa-aws text-orange-400"></i>
-                AWS S3
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-brands fa-aws text-orange-400"></i> AWS S3
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-solid fa-shield text-red-400"></i>
-                Zod Validation
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-shield text-red-400"></i> Zod Validation
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-solid fa-key text-gray-300"></i>
-                JWT Auth
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-key text-gray-300"></i> JWT Auth
               </span>
-
-              <span
-                class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2"
-              >
-                <i class="fa-solid fa-database text-green-400"></i>
-                MongoDB
+              <span class="tech-badge px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-database text-green-400"></i> MongoDB
               </span>
             </div>
           </div>
@@ -259,9 +244,7 @@
 
         <div class="space-y-8">
           <div class="glass-card rounded-[2rem] p-4">
-            <div
-              class="hero-image relative rounded-[1.5rem] overflow-hidden aspect-video border border-white/5"
-            >
+            <div class="hero-image relative rounded-[1.5rem] overflow-hidden aspect-video border border-white/5">
               <img
                 src="../assets/Nova ChatApllicatio.png"
                 alt="Nova Chat Preview"
@@ -277,65 +260,239 @@
             </h3>
 
             <div class="space-y-7">
-              <div
-                class="feature-item p-5 rounded-2xl bg-violet-500/5 border border-violet-500/20"
-              >
-                <h4 class="font-bold text-violet-300 mb-2">
-                  Real-time Messaging Protocol
-                </h4>
+              <div class="feature-item p-5 rounded-2xl bg-violet-500/5 border border-violet-500/20">
+                <h4 class="font-bold text-violet-300 mb-2">Real-time Messaging Protocol</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                  Persistent full-duplex bi-directional communication channels
-                  powered by Socket.io, featuring low-latency typing indicators,
-                  instant message delivery statuses (Sent, Delivered, Seen), and
-                  real-time online presence state tracking.
+                  Persistent full-duplex bi-directional communication channels powered by Socket.io, featuring low-latency typing indicators, instant message delivery statuses (Sent, Delivered, Seen), and real-time online presence state tracking.
                 </p>
               </div>
 
               <div class="feature-item">
-                <h4 class="font-bold text-white mb-2">
-                  Advanced Cryptographic Authentication
-                </h4>
+                <h4 class="font-bold text-white mb-2">Advanced Cryptographic Authentication</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                  State-of-the-art secure authentication engine integrating JSON
-                  Web Tokens (JWT) with automated refresh token rotation
-                  strategies, alongside secure encrypted passport routing
-                  schemas.
+                  State-of-the-art secure authentication engine integrating JSON Web Tokens (JWT) with automated refresh token rotation strategies, 2FA with OTP, and Google OAuth integration.
                 </p>
               </div>
 
               <div class="feature-item">
-                <h4 class="font-bold text-white mb-2">
-                  Secure Media Streaming via AWS S3
-                </h4>
+                <h4 class="font-bold text-white mb-2">Secure Media Streaming via AWS S3</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                  High-performance media handling mechanism utilising AWS S3
-                  Presigned URLs, ensuring secure file uploads and downloads
-                  directly from the client side without clogging backend memory
-                  buffers.
+                  High-performance media handling mechanism utilizing AWS S3 Presigned URLs, enabling direct client-side uploads and downloads to optimize server memory usage.
                 </p>
               </div>
 
               <div class="feature-item">
-                <h4 class="font-bold text-white mb-2">
-                  Strict Schema & Memory Validation
-                </h4>
+                <h4 class="font-bold text-white mb-2">Strict Schema & Memory Validation</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                  Type-safe runtime request interception enforced by TypeScript
-                  and Zod validation layers, blocking polluted or malicious
-                  payloads long before hitting the data persistence tier.
+                  Type-safe runtime request interception enforced by TypeScript and Zod validation layers, blocking invalid payloads before reaching persistence layers.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <div class="feature-item">
-                <h4 class="font-bold text-white mb-2">
-                  Modular Architectural Scalability
-                </h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Clean layer separation utilizing enterprise
-                  controller-service-repository patterns to comfortably isolate
-                  logic blocks, making it highly testable and linearly
-                  horizontally scalable.
-                </p>
+      <div class="mt-20">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-5xl font-extrabold gradient-text mb-4">
+            API & Socket Reference Architecture
+          </h2>
+          <p class="text-gray-400 text-base">
+            Comprehensive breakdown of the underlying REST endpoints and WebSocket events powering the Nova Chat Engine.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <div class="glass-card rounded-[2rem] p-6 space-y-4">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
+              <i class="fa-solid fa-lock text-violet-400 text-xl"></i>
+              <h3 class="text-lg font-bold">Auth & Security Endpoints</h3>
+            </div>
+            
+            <div class="space-y-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/signup</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/confirm-email</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/login</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/verify-two-factor-auth</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/login-with-google</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/resend-otp</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/auth/update-password</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/auth/change-phone</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/forget-password</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/auth/reset-password</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-get">GET</span>
+                <span class="text-gray-300 truncate">/auth/refresh-token</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/auth/block-user/:id</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/auth/unblock-user/:id</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-delete">DELETE</span>
+                <span class="text-gray-300 truncate">/auth/delete-friend-chat/:id</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/auth/logout</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-[2rem] p-6 space-y-4">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
+              <i class="fa-solid fa-user-gear text-violet-400 text-xl"></i>
+              <h3 class="text-lg font-bold">User & AWS S3 Media</h3>
+            </div>
+
+            <div class="space-y-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-get">GET</span>
+                <span class="text-gray-300 truncate">/user/get-profile</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/user/:id/freezed-account</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/user/:id/restored-account</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-get">GET</span>
+                <span class="text-gray-300 truncate">/user/blocked-list</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/user/profile-image</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/user/cover-images</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/user/large-files</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-delete">DELETE</span>
+                <span class="text-gray-300 truncate">/user/delete-aws-file</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-delete">DELETE</span>
+                <span class="text-gray-300 truncate">/user/delete-aws-files</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/user/delete-account-request</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-delete">DELETE</span>
+                <span class="text-gray-300 truncate">/user/delete-account</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-post">POST</span>
+                <span class="text-gray-300 truncate">/user/two-factor-auth-req</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/user/two-factor-auth</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                <span class="text-gray-300 truncate">/user/edit-profile</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <div class="glass-card rounded-[2rem] p-6 space-y-4">
+              <div class="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
+                <i class="fa-solid fa-comments text-violet-400 text-xl"></i>
+                <h3 class="text-lg font-bold">Chat REST APIs</h3>
+              </div>
+
+              <div class="space-y-3 font-mono text-xs">
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-get">GET</span>
+                  <span class="text-gray-300 truncate">/user/:id/chat/getChat</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-get">GET</span>
+                  <span class="text-gray-300 truncate">/user/:id/chat/get-message/:msgId</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-delete">DELETE</span>
+                  <span class="text-gray-300 truncate">/user/:id/chat/delete-message/:msgId</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-patch">PATCH</span>
+                  <span class="text-gray-300 truncate">/user/:id/chat/edit-message/:msgId</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-[2rem] p-6 space-y-4 border-violet-500/30 bg-violet-500/5">
+              <div class="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
+                <i class="fa-solid fa-bolt text-yellow-400 text-xl"></i>
+                <h3 class="text-lg font-bold">Real-time Socket.io Events</h3>
+              </div>
+
+              <div class="space-y-3 font-mono text-xs">
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-socket">EVENT</span>
+                  <span class="text-gray-200 font-semibold truncate">sendMessage</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-socket">EVENT</span>
+                  <span class="text-gray-200 font-semibold truncate">receiveMessage</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-socket">EVENT</span>
+                  <span class="text-gray-200 font-semibold truncate">typingStatus</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-socket">EVENT</span>
+                  <span class="text-gray-200 font-semibold truncate">messageStatusUpdate</span>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 flex items-center justify-between gap-2">
+                  <span class="px-2 py-1 rounded text-[10px] font-bold method-socket">EVENT</span>
+                  <span class="text-gray-200 font-semibold truncate">userPresenceChanged</span>
+                </div>
               </div>
             </div>
           </div>
