@@ -331,6 +331,119 @@
           </div>
         </div>
       </div>
+
+      <div class="mt-14 space-y-12">
+        <div class="glass-card rounded-[2rem] p-8 md:p-10">
+          <h3 class="text-2xl font-bold flex items-center gap-3 mb-6">
+            <i class="fa-solid fa-[#8b5cf6] fa-sitemap text-violet-400"></i>
+            System Architecture
+          </h3>
+          <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+            High-level overview of the backend request pipeline, micro-services, and cloud integration.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+              <i class="fa-solid fa-mobile-screen text-2xl text-violet-400 mb-3"></i>
+              <h4 class="font-bold text-sm">Client App</h4>
+              <p class="text-xs text-gray-400 mt-1">REST & WS Requests</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+              <i class="fa-solid fa-shield-halved text-2xl text-blue-400 mb-3"></i>
+              <h4 class="font-bold text-sm">Express Gateway</h4>
+              <p class="text-xs text-gray-400 mt-1">JWT & Zod Validation</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+              <i class="fa-solid fa-bolt text-2xl text-yellow-400 mb-3"></i>
+              <h4 class="font-bold text-sm">Real-time / Socket</h4>
+              <p class="text-xs text-gray-400 mt-1">Presence & Messaging</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+              <i class="fa-solid fa-database text-2xl text-green-400 mb-3"></i>
+              <h4 class="font-bold text-sm">Data Layer</h4>
+              <p class="text-xs text-gray-400 mt-1">MongoDB & AWS S3</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-8 md:p-10">
+          <h3 class="text-2xl font-bold flex items-center gap-3 mb-6">
+            <i class="fa-solid fa-list-check text-violet-400"></i>
+            Key API Endpoints
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-gray-400">
+              <thead class="bg-white/5 text-gray-200 uppercase text-xs">
+                <tr>
+                  <th class="py-3 px-4 rounded-l-xl">Method</th>
+                  <th class="py-3 px-4">Endpoint</th>
+                  <th class="py-3 px-4">Description</th>
+                  <th class="py-3 px-4 rounded-r-xl">Auth</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5">
+                <tr>
+                  <td class="py-3 px-4"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold text-xs">POST</span></td>
+                  <td class="py-3 px-4 font-mono text-white">/api/v1/auth/signup</td>
+                  <td class="py-3 px-4">User registration with OTP verification</td>
+                  <td class="py-3 px-4"><span class="text-gray-500">Public</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold text-xs">POST</span></td>
+                  <td class="py-3 px-4 font-mono text-white">/api/v1/auth/refresh</td>
+                  <td class="py-3 px-4">Token rotation for active sessions</td>
+                  <td class="py-3 px-4"><span class="text-yellow-400">Refresh Token</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded font-bold text-xs">GET</span></td>
+                  <td class="py-3 px-4 font-mono text-white">/api/v1/posts/feed</td>
+                  <td class="py-3 px-4">Fetch paginated user feed</td>
+                  <td class="py-3 px-4"><span class="text-violet-400">Bearer Token</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold text-xs">POST</span></td>
+                  <td class="py-3 px-4 font-mono text-white">/api/v1/media/upload-url</td>
+                  <td class="py-3 px-4">Get AWS S3 presigned URL for direct upload</td>
+                  <td class="py-3 px-4"><span class="text-violet-400">Bearer Token</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded font-bold text-xs">WS</span></td>
+                  <td class="py-3 px-4 font-mono text-white">/socket.io</td>
+                  <td class="py-3 px-4">Real-time chat & notifications pipeline</td>
+                  <td class="py-3 px-4"><span class="text-violet-400">Handshake Auth</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-8 md:p-10">
+          <h3 class="text-2xl font-bold flex items-center gap-3 mb-6">
+            <i class="fa-solid fa-gears text-violet-400"></i>
+            Technical Challenges & Engineering Solutions
+          </h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+              <h4 class="font-bold text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-cloud-arrow-up text-violet-400"></i>
+                S3 Presigned URLs vs. Direct Uploads
+              </h4>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Offloaded file upload streams directly to AWS S3 using presigned URLs, reducing API server CPU/RAM usage and avoiding server-side bottlenecks during heavy media uploads.
+              </p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+              <h4 class="font-bold text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-key text-violet-400"></i>
+                Refresh Token Rotation Security
+              </h4>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Implemented strict token rotation with revocation lists. If a reused refresh token is detected, the entire session family is instantly invalidated to protect compromised credentials.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="border-t border-white/5 mt-20 py-10 text-center">
