@@ -366,450 +366,442 @@
       </div>
     </section>
     <section id="portfolio" class="px-4 md:px-6 lg:px-24 bg-[#030014] py-24">
-      <div class="w-[90%] max-w-[1400px] mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
-            Portfolio <span class="text-violet-500">Showcase</span>
-          </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-            Explore my journey through projects, certifications, and technical
-            expertise.
-          </p>
-        </div>
-        <div class="flex justify-center mb-16">
-          <div class="tab-container flex w-full max-w-4xl">
-            <button
-              onclick="switchTab('projects')"
-              id="btn-projects"
-              class="tab-btn active flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
-            >
-              <i class="fa-solid fa-code text-lg"></i> Projects
-            </button>
-            <button
-              onclick="switchTab('certificates')"
-              id="btn-certificates"
-              class="tab-btn flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
-            >
-              <i class="fa-solid fa-award text-lg"></i> Certificates
-            </button>
-            <button
-              onclick="switchTab('tech')"
-              id="btn-tech"
-              class="tab-btn flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
-            >
-              <i class="fa-solid fa-layer-group text-lg"></i> Tech Stack
-            </button>
-          </div>
-        </div>
-        <div id="projects" class="content-pane active">
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div
-              class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-              >
-                <img
-                  src="./assets/Social Media App.jpg"
-                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
-              <h4 class="text-xl font-bold mb-2">Social Media Application</h4>
-              <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
-                Advanced backend system featuring JWT authentication, real-time
-                notifications, and media handling via AWS S3.
-              </p>
-              <div
-                class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-              >
-                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                  <span
-                    class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                    >NODEJS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                    >MONGO</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                    >TS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
-                    >SOCKET.IO</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
-                    >AWS</span
-                  >
-                </div>
-                <a
-                  href="./projects/social.html"
-                  class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                  >Details</a
-                >
-              </div>
-            </div>
-            <div
-              class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-              >
-                <img
-                  src="./assets/Sara7a App.png"
-                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <h4 class="text-xl font-bold mb-2">Sara7a Application</h4>
-              <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
-                Secure messaging platform with anonymous feedback and
-                cloud-based media storage.
-              </p>
-              <div
-                class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-              >
-                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                  <span
-                    class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                    >NODEJS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                    >MONGO</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                    >JS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-sky-500/10 text-sky-400 text-[8px] font-bold rounded border border-sky-500/20"
-                    >CLOUDINARY</span
-                  >
-                </div>
-                <a
-                  href="./projects/sara7a.html"
-                  class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                  >Details</a
-                >
-              </div>
-            </div>
-            <div
-              class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-              >
-                <img
-                  src="./assets/Nova ChatApllicatio.png"
-                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <h4 class="text-xl font-bold mb-2">Nova Chat Application</h4>
-              <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
-                A secure, real-time messaging platform featuring end-to-end
-                anonymity options and scalable cloud-based media storage.
-              </p>
-              <div
-                class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-              >
-                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                  <span
-                    class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                    >NODEJS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                    >MONGO</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                    >TS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
-                    >SOCKET.IO</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
-                    >AWS</span
-                  >
-                </div>
-                <a
-                  href="./projects/novaChat.html"
-                  class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                  >Details</a
-                >
-              </div>
-            </div>
-          </div>
-                  <div id="projects" class="content-pane active">
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div
-              class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-              >
-                <img
-                  src="./assets/E-Commerce Application.jpg"
-                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
-              <h4 class="text-xl font-bold mb-2">E-Commerce Application</h4>
-              <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
-                  Advanced E-commerce backend powered by NestJS, featuring JWT authentication, 
-                  real-time notifications, and local file storage for product assets
-              </p>
-              <div
-                class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-              >
-                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                  <span
-                    class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                    >NODEJS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                    >MONGO</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
-                    >NESTJS</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                    >ZOD</span
-                  >
-                  <span
-                    class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
-                    >PAYMENT</span
-                  >
-                </div>
-                <a
-                  href="./projects/e-commerce.html"
-                  class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                  >Details</a
-                >
-              </div>
-            </div>
-        </div>
-        <div id="certificates" class="content-pane">
-          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div
-              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
-              >
-                <img
-                  src="./assets/Mohamed Ahmed Fouad.jpg"
-                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div class="px-4 pb-4">
-                <h4 class="text-2xl font-extrabold mb-1">Route Academy</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Comprehensive program focused on enterprise-level Node.js and
-                  NestJS.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
-              >
-                <img
-                  src="./assets/Hard Advanced Node Js.jpeg"
-                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div class="px-4 pb-4">
-                <h4 class="text-2xl font-extrabold mb-1">
-                  Hard Advanced Node Js
-                </h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Advanced program focused on Node.js architecture, server-side
-                  development, high-performance backend systems, asynchronous
-                  programming, and scalable API management.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
-            >
-              <div
-                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
-              >
-                <img
-                  src="./assets/Introduction to Git and GitHub.jpg"
-                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div class="px-4 pb-4">
-                <h4 class="text-2xl font-extrabold mb-1">
-                  Introduction to Git and GitHub
-                </h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Comprehensive program focused on Git, GitHub, version control
-                  workflows, branching strategies, collaboration, and repository
-                  management.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="tech" class="content-pane">
+  <div class="w-[90%] max-w-[1400px] mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
+        Portfolio <span class="text-violet-500">Showcase</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+        Explore my journey through projects, certifications, and technical
+        expertise.
+      </p>
+    </div>
+    <div class="flex justify-center mb-16">
+      <div class="tab-container flex w-full max-w-4xl">
+        <button
+          onclick="switchTab('projects')"
+          id="btn-projects"
+          class="tab-btn active flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
+        >
+          <i class="fa-solid fa-code text-lg"></i> Projects
+        </button>
+        <button
+          onclick="switchTab('certificates')"
+          id="btn-certificates"
+          class="tab-btn flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
+        >
+          <i class="fa-solid fa-award text-lg"></i> Certificates
+        </button>
+        <button
+          onclick="switchTab('tech')"
+          id="btn-tech"
+          class="tab-btn flex-1 py-4 text-xs md:text-sm font-bold flex flex-col items-center gap-2"
+        >
+          <i class="fa-solid fa-layer-group text-lg"></i> Tech Stack
+        </button>
+      </div>
+    </div>
+    <div id="projects" class="content-pane active">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
+        >
           <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+            class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
           >
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-brands fa-node-js text-5xl text-green-500 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+            <img
+              src="./assets/Social Media App.jpg"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+          <h4 class="text-xl font-bold mb-2">Social Media Application</h4>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
+            Advanced backend system featuring JWT authentication, real-time
+            notifications, and media handling via AWS S3.
+          </p>
+          <div
+            class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
+          >
+            <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+              <span
+                class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
+                >NODEJS</span
               >
-                Node.js
-              </p>
-            </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-brands fa-node-js text-5xl text-gray-400 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              <span
+                class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
+                >MONGO</span
               >
-                Express.js
-              </p>
-            </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-solid fa-code text-5xl text-blue-400 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              <span
+                class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
+                >TS</span
               >
-                TypeScript
-              </p>
-            </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-solid fa-server text-5xl text-red-500 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              <span
+                class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
+                >SOCKET.IO</span
               >
-                NestJS
-              </p>
-            </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-solid fa-database text-5xl text-green-400 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+              <span
+                class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
+                >AWS</span
               >
-                MongoDB
-              </p>
             </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            <a
+              href="./projects/social.html"
+              class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
+              >Details</a
             >
-              <i
-                class="fa-brands fa-aws text-5xl text-orange-400 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          </div>
+        </div>
+        <div
+          class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
+        >
+          <div
+            class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
+          >
+            <img
+              src="./assets/Sara7a App.png"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          <h4 class="text-xl font-bold mb-2">Sara7a Application</h4>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
+            Secure messaging platform with anonymous feedback and cloud-based
+            media storage.
+          </p>
+          <div
+            class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
+          >
+            <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+              <span
+                class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
+                >NODEJS</span
               >
-                AWS S3
-              </p>
+              <span
+                class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
+                >MONGO</span
+              >
+              <span
+                class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
+                >JS</span
+              >
+              <span
+                class="px-2 py-0.5 bg-sky-500/10 text-sky-400 text-[8px] font-bold rounded border border-sky-500/20"
+                >CLOUDINARY</span
+              >
             </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            <a
+              href="./projects/sara7a.html"
+              class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
+              >Details</a
             >
-              <i
-                class="fa-solid fa-plug text-5xl text-gray-200 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          </div>
+        </div>
+        <div
+          class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
+        >
+          <div
+            class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
+          >
+            <img
+              src="./assets/Nova ChatApllicatio.png"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          <h4 class="text-xl font-bold mb-2">Nova Chat Application</h4>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
+            A secure, real-time messaging platform featuring end-to-end
+            anonymity options and scalable cloud-based media storage.
+          </p>
+          <div
+            class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
+          >
+            <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+              <span
+                class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
+                >NODEJS</span
               >
-                Socket.io
-              </p>
+              <span
+                class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
+                >MONGO</span
+              >
+              <span
+                class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
+                >TS</span
+              >
+              <span
+                class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
+                >SOCKET.IO</span
+              >
+              <span
+                class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
+                >AWS</span
+              >
             </div>
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            <a
+              href="./projects/novaChat.html"
+              class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
+              >Details</a
             >
-              <i
-                class="fa-brands fa-git-alt text-5xl text-orange-600 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          </div>
+        </div>
+        <div
+          class="project-card rounded-3xl p-5 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/30"
+        >
+          <div
+            class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
+          >
+            <img
+              src="./assets/E-Commerce Application.jpg"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+          <h4 class="text-xl font-bold mb-2">E-Commerce Application</h4>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow">
+            Advanced E-commerce backend powered by NestJS, featuring JWT authentication,
+            real-time notifications, and local file storage for product assets
+          </p>
+          <div
+            class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
+          >
+            <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+              <span
+                class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
+                >NODEJS</span
               >
-                Git
-              </p>
+              <span
+                class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
+                >MONGO</span
+              >
+              <span
+                class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
+                >NESTJS</span
+              >
+              <span
+                class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
+                >ZOD</span
+              >
+              <span
+                class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
+                >PAYMENT</span
+              >
             </div>
-
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+            <a
+              href="./projects/e-commerce.html"
+              class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
+              >Details</a
             >
-              <i
-                class="fa-brands fa-github text-5xl text-white mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
-              >
-                GitHub
-              </p>
-            </div>
-
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-solid fa-space-shuttle text-5xl text-orange-500 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
-              >
-                Postman
-              </p>
-            </div>
-
-            <div
-              class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
-            >
-              <i
-                class="fa-solid fa-shield-halved text-5xl text-violet-400 mb-4 group-hover:scale-110 transition"
-              ></i>
-              <p
-                class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
-              >
-                Security
-              </p>
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    <div id="certificates" class="content-pane">
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div
+          class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+        >
+          <div
+            class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
+          >
+            <img
+              src="./assets/Mohamed Ahmed Fouad.jpg"
+              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="px-4 pb-4">
+            <h4 class="text-2xl font-extrabold mb-1">Route Academy</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Comprehensive program focused on enterprise-level Node.js and
+              NestJS.
+            </p>
+          </div>
+        </div>
+        <div
+          class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+        >
+          <div
+            class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
+          >
+            <img
+              src="./assets/Hard Advanced Node Js.jpeg"
+              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="px-4 pb-4">
+            <h4 class="text-2xl font-extrabold mb-1">
+              Hard Advanced Node Js
+            </h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Advanced program focused on Node.js architecture, server-side
+              development, high-performance backend systems, asynchronous
+              programming, and scalable API management.
+            </p>
+          </div>
+        </div>
+        <div
+          class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+        >
+          <div
+            class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
+          >
+            <img
+              src="./assets/Introduction to Git and GitHub.jpg"
+              class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="px-4 pb-4">
+            <h4 class="text-2xl font-extrabold mb-1">
+              Introduction to Git and GitHub
+            </h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Comprehensive program focused on Git, GitHub, version control
+              workflows, branching strategies, collaboration, and repository
+              management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="tech" class="content-pane">
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+      >
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-brands fa-node-js text-5xl text-green-500 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            Node.js
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-brands fa-node-js text-5xl text-gray-400 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            Express.js
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-solid fa-code text-5xl text-blue-400 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            TypeScript
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-solid fa-server text-5xl text-red-500 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            NestJS
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-solid fa-database text-5xl text-green-400 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            MongoDB
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-brands fa-aws text-5xl text-orange-400 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            AWS S3
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-solid fa-plug text-5xl text-gray-200 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            Socket.io
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-brands fa-git-alt text-5xl text-orange-600 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            Git
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-brands fa-github text-5xl text-white mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            GitHub
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-solid fa-space-shuttle text-5xl text-orange-500 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            Postman
+          </p>
+        </div>
+        <div
+          class="project-card rounded-2xl p-6 text-center group hover:border-violet-500/40 transition-all"
+        >
+          <i
+            class="fa-solid fa-shield-halved text-5xl text-violet-400 mb-4 group-hover:scale-110 transition"
+          ></i>
+          <p
+            class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
+          >
+            Security
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <section id="contact" class="px-4 md:px-6 lg:px-24 bg-[#05011a] py-24">
       <div class="max-w-6xl mx-auto w-full">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
