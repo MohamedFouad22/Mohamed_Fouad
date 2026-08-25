@@ -101,6 +101,23 @@
         pointer-events: none;
         opacity: 0.55;
       }
+      #about-particles,
+      #contact-particles {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.4;
+      }
+      .quote-tilt {
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease, border-color 0.3s ease;
+      }
+      .quote-tilt:hover {
+        border-color: rgba(139, 92, 246, 0.55);
+      }
       section {
         min-height: 100vh;
         display: flex;
@@ -290,7 +307,7 @@
       .float-slow{animation:float 8s ease-in-out infinite}
       .float-slow-rev{animation:floatRev 9s ease-in-out infinite}
       @keyframes floatRev{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
-      @media(max-width:768px){.cursor-glow{display:none}.hero-ring{width:280px;height:280px}.orb-3d.one{width:110px;height:110px}#portfolio-particles{opacity:.35}}
+      @media(max-width:768px){.cursor-glow{display:none}.hero-ring{width:280px;height:280px}.orb-3d.one{width:110px;height:110px}#portfolio-particles{opacity:.35}#about-particles,#contact-particles{opacity:.25}}
 
     </style>
   </head>
@@ -417,8 +434,13 @@
         </div>
       </div>
     </section>
-    <section id="about" class="interactive-section" class="px-4 md:px-6 lg:px-24 bg-[#05011a]">
-      <div class="max-w-4xl mx-auto w-full text-center reveal-3d">
+    <section id="about" class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#05011a] overflow-hidden">
+      <canvas id="about-particles"></canvas>
+      <div class="section-orbs">
+        <div class="orb-3d one float-slow" style="left:4%;top:20%"></div>
+        <div class="orb-3d two float-slow-rev" style="right:6%;bottom:16%"></div>
+      </div>
+      <div class="max-w-4xl mx-auto w-full text-center reveal-3d section-content">
         <div class="mb-6">
           <h2 class="text-violet-500 font-bold text-3xl md:text-5xl mb-2">
             Hello, I'm
@@ -438,7 +460,7 @@
           secure APIs.
         </p>
         <div
-          class="bg-violet-950/20 border border-violet-500/30 rounded-2xl p-5 mb-10 backdrop-blur-sm inline-block w-full max-w-2xl text-white"
+          class="quote-tilt bg-violet-950/20 border border-violet-500/30 rounded-2xl p-5 mb-10 backdrop-blur-sm inline-block w-full max-w-2xl text-white"
         >
           <p
             class="text-gray-300 text-sm md:text-base italic flex items-center justify-center gap-3"
@@ -937,8 +959,13 @@
         </div>
       </div>
     </section>
-    <section id="contact" class="interactive-section" class="px-4 md:px-6 lg:px-24 bg-[#05011a] py-24">
-      <div class="max-w-6xl mx-auto w-full reveal-3d">
+    <section id="contact" class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#05011a] py-24 overflow-hidden">
+      <canvas id="contact-particles"></canvas>
+      <div class="section-orbs">
+        <div class="orb-3d three float-slow" style="left:10%;bottom:8%"></div>
+        <div class="orb-3d two float-slow-rev" style="right:5%;top:10%"></div>
+      </div>
+      <div class="max-w-6xl mx-auto w-full reveal-3d section-content">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div
             class="text-center lg:text-left flex flex-col items-center lg:items-start"
@@ -1339,6 +1366,117 @@
           camera.aspect = width / height;
           camera.updateProjectionMatrix();
           renderer.setSize(width, height);
+        });
+      })();
+
+      function createSectionParticles(canvasId, sectionId, options) {
+        const canvas = document.getElementById(canvasId);
+        const section = document.getElementById(sectionId);
+        if (!canvas || !section || typeof THREE === "undefined") return;
+        let width = section.clientWidth;
+        let height = section.clientHeight;
+        const renderer = new THREE.WebGLRenderer({
+          canvas,
+          alpha: true,
+          antialias: true,
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(width, height);
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(55, width / height, 1, 2500);
+        camera.position.z = 600;
+        const particleCount = window.innerWidth < 768 ? 180 : 420;
+        const positions = new Float32Array(particleCount * 3);
+        for (let i = 0; i < particleCount; i++) {
+          positions[i * 3] = (Math.random() - 0.5) * 1700;
+          positions[i * 3 + 1] = (Math.random() - 0.5) * 1400;
+          positions[i * 3 + 2] = (Math.random() - 0.5) * 800;
+        }
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(positions, 3),
+        );
+        const material = new THREE.PointsMaterial({
+          color: options.color,
+          size: 1.8,
+          transparent: true,
+          opacity: 0.4,
+          sizeAttenuation: true,
+        });
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        const wireMat = new THREE.MeshBasicMaterial({
+          color: options.wireColor,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.18,
+        });
+        const wireMesh = new THREE.Mesh(options.geometry, wireMat);
+        wireMesh.position.set(options.wirePos[0], options.wirePos[1], options.wirePos[2]);
+        scene.add(wireMesh);
+
+        let visible = false;
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              visible = entry.isIntersecting;
+            });
+          },
+          { threshold: 0.05 },
+        );
+        io.observe(section);
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (!visible) return;
+          particles.rotation.y += 0.00035;
+          particles.rotation.x += 0.00012;
+          wireMesh.rotation.y += 0.001;
+          wireMesh.rotation.x += 0.0006;
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener("resize", () => {
+          width = section.clientWidth;
+          height = section.clientHeight;
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+          renderer.setSize(width, height);
+        });
+      }
+
+      createSectionParticles("about-particles", "about", {
+        color: 0xc4b5fd,
+        wireColor: 0x8b5cf6,
+        geometry: new THREE.TorusKnotGeometry(70, 12, 100, 16),
+        wirePos: [-480, -260, -350],
+      });
+
+      createSectionParticles("contact-particles", "contact", {
+        color: 0x93c5fd,
+        wireColor: 0x6d28d9,
+        geometry: new THREE.IcosahedronGeometry(85, 0),
+        wirePos: [500, 240, -320],
+      });
+
+      (function initQuoteTilt() {
+        const quote = document.querySelector(".quote-tilt");
+        if (!quote) return;
+        quote.addEventListener("mousemove", (e) => {
+          const rect = quote.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateY = ((x - centerX) / centerX) * 5;
+          const rotateX = ((centerY - y) / centerY) * 5;
+          quote.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        quote.addEventListener("mouseleave", () => {
+          quote.style.transform = "rotateX(0deg) rotateY(0deg)";
         });
       })();
 
