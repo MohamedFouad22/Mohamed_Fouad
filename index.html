@@ -34,6 +34,73 @@
         font-family: "Plus Jakarta Sans", sans-serif;
         background: #030014;
         color: white;
+        opacity: 0;
+        transition: opacity 0.9s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+      .aurora-layer {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .aurora-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.16;
+        animation: auroraDrift 28s ease-in-out infinite;
+      }
+      .aurora-blob.a {
+        width: 46vw;
+        height: 46vw;
+        top: -12%;
+        left: -8%;
+        background: #8b5cf6;
+      }
+      .aurora-blob.b {
+        width: 38vw;
+        height: 38vw;
+        bottom: -14%;
+        right: -6%;
+        background: #3b82f6;
+        animation-delay: -9s;
+        animation-duration: 34s;
+      }
+      .aurora-blob.c {
+        width: 30vw;
+        height: 30vw;
+        top: 38%;
+        left: 42%;
+        background: #ec4899;
+        animation-delay: -18s;
+        animation-duration: 40s;
+        opacity: 0.1;
+      }
+      @keyframes auroraDrift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        33% {
+          transform: translate3d(4%, 6%, 0) scale(1.08);
+        }
+        66% {
+          transform: translate3d(-5%, -3%, 0) scale(0.96);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .aurora-blob,
+        .floating,
+        .float-slow,
+        .float-slow-rev,
+        .orb-3d,
+        .section-title-3d {
+          animation: none !important;
+        }
       }
       ::-webkit-scrollbar {
         width: 8px;
@@ -117,6 +184,49 @@
       }
       .quote-tilt:hover {
         border-color: rgba(139, 92, 246, 0.55);
+      }
+      .tech-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 10px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #cbd5e1;
+      }
+      .tech-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        box-shadow: 0 0 6px currentColor;
+      }
+      .btn-details-full {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(139, 92, 246, 0.35);
+        color: #a78bfa;
+        font-weight: 700;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+      }
+      .btn-details-full:hover {
+        background: #8b5cf6;
+        color: white;
+        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
+        transform: translateY(-2px);
       }
       section {
         min-height: 100vh;
@@ -312,6 +422,11 @@
     </style>
   </head>
   <body class="overflow-x-hidden">
+    <div class="aurora-layer">
+      <div class="aurora-blob a"></div>
+      <div class="aurora-blob b"></div>
+      <div class="aurora-blob c"></div>
+    </div>
     <div class="progress-bar" id="progressBar"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="toast" id="toast">Copied successfully</div>
@@ -489,7 +604,7 @@
         </div>
       </div>
     </section>
-    <section id="portfolio" class="interactive-section" class="relative px-4 md:px-6 lg:px-24 bg-[#030014] py-24 overflow-hidden">
+    <section id="portfolio" class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#030014] py-24 overflow-hidden">
       <canvas id="portfolio-particles"></canvas>
       <div class="section-orbs">
         <div class="orb-3d one float-slow"></div>
@@ -535,217 +650,229 @@
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
               >
-                <div class="card-inner-3d">
-                  <div
-                    class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-                  >
+                <div class="card-inner-3d flex flex-col h-full">
+                  <div class="relative aspect-video overflow-hidden">
                     <img
                       src="./assets/Social Media App.jpg"
-                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                       loading="lazy"
                     />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent"
+                    ></div>
+                    <span
+                      class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-extrabold text-violet-300"
+                      >01</span
+                    >
                   </div>
-                  <h4 class="text-xl font-bold mb-2">
-                    Social Media Application
-                  </h4>
-                  <p
-                    class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
-                  >
-                    Advanced backend system featuring JWT authentication,
-                    real-time notifications, and media handling via AWS S3.
-                  </p>
-                  <div
-                    class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-                  >
-                    <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                      <span
-                        class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                        >NODEJS</span
+                  <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-lg font-bold mb-2">
+                      Social Media Application
+                    </h4>
+                    <p
+                      class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
+                    >
+                      Advanced backend system featuring JWT authentication,
+                      real-time notifications, and media handling via AWS S3.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#4ade80"></span
+                        >Node.js</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                        >MONGO</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#facc15"></span
+                        >MongoDB</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                        >TS</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#60a5fa"></span
+                        >TypeScript</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
-                        >SOCKET.IO</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#f472b6"></span
+                        >Socket.io</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#fb923c"></span
                         >AWS</span
                       >
                     </div>
                     <a
                       href="./projects/social.html"
-                      class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                      >Details</a
-                    >
+                      class="btn-details-full"
+                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    ></a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
               >
-                <div class="card-inner-3d">
-                  <div
-                    class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-                  >
+                <div class="card-inner-3d flex flex-col h-full">
+                  <div class="relative aspect-video overflow-hidden">
                     <img
                       src="./assets/Sara7a App.png"
-                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                     />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent"
+                    ></div>
+                    <span
+                      class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-extrabold text-violet-300"
+                      >02</span
+                    >
                   </div>
-                  <h4 class="text-xl font-bold mb-2">Sara7a Application</h4>
-                  <p
-                    class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
-                  >
-                    Secure messaging platform with anonymous feedback and
-                    cloud-based media storage.
-                  </p>
-                  <div
-                    class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-                  >
-                    <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                      <span
-                        class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                        >NODEJS</span
+                  <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-lg font-bold mb-2">Sara7a Application</h4>
+                    <p
+                      class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
+                    >
+                      Secure messaging platform with anonymous feedback and
+                      cloud-based media storage.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#4ade80"></span
+                        >Node.js</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                        >MONGO</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#facc15"></span
+                        >MongoDB</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                        >JS</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#eab308"></span
+                        >JavaScript</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-sky-500/10 text-sky-400 text-[8px] font-bold rounded border border-sky-500/20"
-                        >CLOUDINARY</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#38bdf8"></span
+                        >Cloudinary</span
                       >
                     </div>
                     <a
                       href="./projects/sara7a.html"
-                      class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                      >Details</a
-                    >
+                      class="btn-details-full"
+                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    ></a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
               >
-                <div class="card-inner-3d">
-                  <div
-                    class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-                  >
+                <div class="card-inner-3d flex flex-col h-full">
+                  <div class="relative aspect-video overflow-hidden">
                     <img
                       src="./assets/Nova ChatApllicatio.png"
-                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                     />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent"
+                    ></div>
+                    <span
+                      class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-extrabold text-violet-300"
+                      >03</span
+                    >
                   </div>
-                  <h4 class="text-xl font-bold mb-2">Nova Chat Application</h4>
-                  <p
-                    class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
-                  >
-                    A secure, real-time messaging platform featuring end-to-end
-                    anonymity options and scalable cloud-based media storage.
-                  </p>
-                  <div
-                    class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-                  >
-                    <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                      <span
-                        class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                        >NODEJS</span
+                  <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-lg font-bold mb-2">Nova Chat Application</h4>
+                    <p
+                      class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
+                    >
+                      A secure, real-time messaging platform featuring end-to-end
+                      anonymity options and scalable cloud-based media storage.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#4ade80"></span
+                        >Node.js</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                        >MONGO</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#facc15"></span
+                        >MongoDB</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                        >TS</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#60a5fa"></span
+                        >TypeScript</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
-                        >SOCKET.IO</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#f472b6"></span
+                        >Socket.io</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#fb923c"></span
                         >AWS</span
                       >
                     </div>
                     <a
                       href="./projects/novaChat.html"
-                      class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                      >Details</a
-                    >
+                      class="btn-details-full"
+                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    ></a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
               >
-                <div class="card-inner-3d">
-                  <div
-                    class="aspect-video bg-violet-950/20 rounded-4xl mb-5 overflow-hidden border border-white/5"
-                  >
+                <div class="card-inner-3d flex flex-col h-full">
+                  <div class="relative aspect-video overflow-hidden">
                     <img
                       src="./assets/E-Commerce Application.jpg"
-                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                       loading="lazy"
                     />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent"
+                    ></div>
+                    <span
+                      class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-extrabold text-violet-300"
+                      >04</span
+                    >
                   </div>
-                  <h4 class="text-xl font-bold mb-2">E-Commerce Application</h4>
-                  <p
-                    class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
-                  >
-                    Advanced E-commerce backend powered by NestJS, featuring JWT
-                    authentication, real-time notifications, and local file
-                    storage for product assets
-                  </p>
-                  <div
-                    class="flex items-center justify-between mt-auto pt-4 border-t border-white/5"
-                  >
-                    <div class="flex flex-wrap gap-1.5 max-w-[70%]">
-                      <span
-                        class="px-2 py-0.5 bg-green-500/10 text-green-400 text-[8px] font-bold rounded border border-green-500/20"
-                        >NODEJS</span
+                  <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-lg font-bold mb-2">E-Commerce Application</h4>
+                    <p
+                      class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
+                    >
+                      Advanced E-commerce backend powered by NestJS, featuring JWT
+                      authentication, real-time notifications, and local file
+                      storage for product assets
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#4ade80"></span
+                        >Node.js</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-[8px] font-bold rounded border border-yellow-500/20"
-                        >MONGO</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#facc15"></span
+                        >MongoDB</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-[8px] font-bold rounded border border-pink-500/20"
-                        >NESTJS</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#f472b6"></span
+                        >NestJS</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[8px] font-bold rounded border border-blue-500/20"
-                        >ZOD</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#60a5fa"></span
+                        >Zod</span
                       >
-                      <span
-                        class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-[8px] font-bold rounded border border-orange-500/20"
-                        >PAYMENT</span
+                      <span class="tech-chip"
+                        ><span class="tech-dot" style="background:#fb923c"></span
+                        >Payment</span
                       >
                     </div>
                     <a
                       href="./projects/e-commerce.html"
-                      class="px-4 py-2 rounded-lg btn-details text-[10px] font-bold uppercase shrink-0"
-                      >Details</a
-                    >
+                      class="btn-details-full"
+                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    ></a>
                   </div>
                 </div>
               </div>
@@ -1149,6 +1276,10 @@
       </p>
     </footer>
     <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+
       function switchTab(tabId) {
         document
           .querySelectorAll(".content-pane")
