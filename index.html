@@ -228,6 +228,25 @@
         box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
         transform: translateY(-2px);
       }
+      .tech-icon-wrap {
+        width: 62px;
+        height: 62px;
+        margin: 0 auto 14px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        background: color-mix(in srgb, var(--tech-color) 14%, transparent);
+        border: 1px solid color-mix(in srgb, var(--tech-color) 32%, transparent);
+        color: var(--tech-color);
+        transition: all 0.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+      }
+      .tech-icon-3d:hover .tech-icon-wrap {
+        box-shadow: 0 0 26px color-mix(in srgb, var(--tech-color) 55%, transparent);
+        transform: translateZ(25px) scale(1.08);
+        background: color-mix(in srgb, var(--tech-color) 22%, transparent);
+      }
       section {
         min-height: 100vh;
         display: flex;
@@ -882,18 +901,23 @@
         <div id="certificates" class="content-pane">
           <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div
-              class="project-card interactive-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
             >
-              <div
-                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
-              >
+              <div class="relative aspect-[4/3] overflow-hidden">
                 <img
                   src="./assets/Mohamed Ahmed Fouad.jpg"
-                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
                 />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
+                  ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
+                >
               </div>
-              <div class="px-4 pb-4">
-                <h4 class="text-2xl font-extrabold mb-1">Route Academy</h4>
+              <div class="p-6">
+                <h4 class="text-xl font-extrabold mb-2">Route Academy</h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
                   Comprehensive program focused on enterprise-level Node.js and
                   NestJS.
@@ -901,18 +925,23 @@
               </div>
             </div>
             <div
-              class="project-card interactive-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
             >
-              <div
-                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
-              >
+              <div class="relative aspect-[4/3] overflow-hidden">
                 <img
                   src="./assets/Hard Advanced Node Js.jpeg"
-                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
                 />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
+                  ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
+                >
               </div>
-              <div class="px-4 pb-4">
-                <h4 class="text-2xl font-extrabold mb-1">
+              <div class="p-6">
+                <h4 class="text-xl font-extrabold mb-2">
                   Hard Advanced Node Js
                 </h4>
                 <p class="text-gray-400 text-sm leading-relaxed">
@@ -923,25 +952,32 @@
               </div>
             </div>
             <div
-              class="project-card interactive-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40 md:col-span-2"
             >
-              <div
-                class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
-              >
-                <img
-                  src="./assets/Introduction to Git and GitHub.jpg"
-                  class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div class="px-4 pb-4">
-                <h4 class="text-2xl font-extrabold mb-1">
-                  Introduction to Git and GitHub
-                </h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  Comprehensive program focused on Git, GitHub, version control
-                  workflows, branching strategies, collaboration, and repository
-                  management.
-                </p>
+              <div class="grid md:grid-cols-[minmax(0,340px)_1fr]">
+                <div class="relative aspect-[4/3] md:aspect-auto overflow-hidden">
+                  <img
+                    src="./assets/Introduction to Git and GitHub.jpg"
+                    class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
+                  ></div>
+                  <span
+                    class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
+                    ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
+                  >
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                  <h4 class="text-xl font-extrabold mb-2">
+                    Introduction to Git and GitHub
+                  </h4>
+                  <p class="text-gray-400 text-sm leading-relaxed">
+                    Comprehensive program focused on Git, GitHub, version control
+                    workflows, branching strategies, collaboration, and repository
+                    management.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -953,9 +989,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-brands fa-node-js text-5xl text-green-500 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#4ade80">
+                <i class="fa-brands fa-node-js"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -965,9 +1001,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-brands fa-node-js text-5xl text-gray-400 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#9ca3af">
+                <i class="fa-brands fa-node-js"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -977,9 +1013,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-solid fa-code text-5xl text-blue-400 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#60a5fa">
+                <i class="fa-solid fa-code"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -989,9 +1025,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-solid fa-server text-5xl text-red-500 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#ef4444">
+                <i class="fa-solid fa-server"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1001,9 +1037,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-solid fa-database text-5xl text-green-400 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#4ade80">
+                <i class="fa-solid fa-database"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1013,9 +1049,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-brands fa-aws text-5xl text-orange-400 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#fb923c">
+                <i class="fa-brands fa-aws"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1025,9 +1061,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-solid fa-plug text-5xl text-gray-200 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#e5e7eb">
+                <i class="fa-solid fa-plug"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1037,9 +1073,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-brands fa-git-alt text-5xl text-orange-600 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#f97316">
+                <i class="fa-brands fa-git-alt"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1049,9 +1085,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-brands fa-github text-5xl text-white mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#f5f5f5">
+                <i class="fa-brands fa-github"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1061,9 +1097,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-solid fa-space-shuttle text-5xl text-orange-500 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#f97316">
+                <i class="fa-solid fa-space-shuttle"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
@@ -1073,9 +1109,9 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <i
-                class="fa-solid fa-shield-halved text-5xl text-violet-400 mb-4 transition"
-              ></i>
+              <div class="tech-icon-wrap" style="--tech-color:#a78bfa">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
               <p
                 class="text-[10px] font-bold uppercase tracking-widest text-gray-300"
               >
