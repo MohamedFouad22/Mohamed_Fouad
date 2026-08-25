@@ -248,9 +248,43 @@
       .tech-icon-3d:hover {
         transform: rotateY(25deg) rotateX(15deg) scale(1.08) translateZ(20px);
       }
+
+      .cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(139,92,246,.13),rgba(59,130,246,.05) 35%,transparent 70%);transform:translate(-50%,-50%);mix-blend-mode:screen;transition:left .08s linear,top .08s linear}
+      .section-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+      .orb-3d{position:absolute;border-radius:50%;filter:blur(1px);opacity:.55;animation:orbFloat 10s ease-in-out infinite;transform-style:preserve-3d}
+      .orb-3d.one{width:180px;height:180px;top:14%;left:7%;background:radial-gradient(circle at 30% 30%,#c4b5fd,rgba(139,92,246,.12) 38%,transparent 70%);box-shadow:0 0 90px rgba(139,92,246,.25)}
+      .orb-3d.two{width:120px;height:120px;right:9%;bottom:12%;background:radial-gradient(circle at 30% 30%,#93c5fd,rgba(59,130,246,.12) 42%,transparent 70%);animation-delay:-4s}
+      .orb-3d.three{width:70px;height:70px;right:20%;top:22%;background:radial-gradient(circle at 30% 30%,#f0abfc,rgba(236,72,153,.1) 45%,transparent 70%);animation-delay:-7s}
+      @keyframes orbFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}50%{transform:translate3d(35px,-45px,80px) rotate(180deg) scale(1.15)}}
+      .section-content{position:relative;z-index:2}
+      .magnetic{transition:transform .2s ease,box-shadow .3s ease}
+      .magnetic:hover{box-shadow:0 15px 45px rgba(139,92,246,.28)}
+      .interactive-card{position:relative;overflow:hidden}
+      .interactive-card::before{content:"";position:absolute;inset:-2px;background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.16),transparent 75%);transform:translateX(-100%);transition:transform .7s ease;pointer-events:none}
+      .interactive-card:hover::before{transform:translateX(100%)}
+      .interactive-card:hover{border-color:rgba(167,139,250,.55)!important}
+      .tech-icon-3d:hover i{transform:translateZ(45px) scale(1.15);filter:drop-shadow(0 0 18px currentColor)}
+      .contact-card{transform-style:preserve-3d;transition:transform .25s ease,border-color .3s ease}
+      .contact-card:hover{transform:translateY(-5px) translateZ(15px);border-color:rgba(139,92,246,.55)!important}
+      .nav-container{transition:transform .3s ease,background .3s ease,border-color .3s ease}
+      .nav-scrolled .nav-container{background:rgba(3,0,20,.94);border-color:rgba(139,92,246,.42);box-shadow:0 12px 40px rgba(0,0,0,.28)}
+      .progress-bar{position:fixed;top:0;left:0;width:0;height:3px;z-index:9999;background:linear-gradient(90deg,#8b5cf6,#60a5fa,#c084fc);box-shadow:0 0 18px rgba(139,92,246,.8)}
+      .section-title-3d{display:inline-block;text-shadow:0 12px 30px rgba(139,92,246,.2);animation:titlePulse 4s ease-in-out infinite}
+      @keyframes titlePulse{50%{transform:translateY(-3px);text-shadow:0 20px 45px rgba(139,92,246,.45)}}
+      .hero-ring{position:absolute;width:440px;height:440px;border:1px solid rgba(139,92,246,.22);border-radius:50%;animation:spinRing 18s linear infinite}
+      .hero-ring::before,.hero-ring::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#a78bfa;box-shadow:0 0 25px #8b5cf6}
+      .hero-ring::before{top:12%;left:12%}.hero-ring::after{right:9%;bottom:18%;background:#60a5fa}
+      @keyframes spinRing{to{transform:rotate(360deg)}}
+      .toast{position:fixed;right:24px;bottom:24px;z-index:9999;padding:14px 20px;border:1px solid rgba(167,139,250,.45);border-radius:16px;background:rgba(10,5,35,.9);backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(0,0,0,.35);transform:translateY(100px);opacity:0;transition:.4s}
+      .toast.show{transform:translateY(0);opacity:1}
+      @media(max-width:768px){.cursor-glow{display:none}.hero-ring{width:280px;height:280px}.orb-3d.one{width:110px;height:110px}}
+
     </style>
   </head>
   <body class="overflow-x-hidden">
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="toast" id="toast">Copied successfully</div>
     <div
       class="glow-orb w-64 h-64 md:w-96 md:h-96 bg-violet-600/10 top-[-5%] right-[-5%]"
     ></div>
@@ -331,12 +365,12 @@
           >
             <a
               href="#portfolio"
-              class="px-6 py-3 rounded-xl btn-primary font-bold text-xs flex items-center gap-2 text-white"
+              class="magnetic px-6 py-3 rounded-xl btn-primary font-bold text-xs flex items-center gap-2 text-white"
               >Projects <i class="fa-solid fa-arrow-right text-[10px]"></i
             ></a>
             <a
               href="#contact"
-              class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 font-bold text-xs hover:bg-white/10 transition text-white"
+              class="magnetic px-6 py-3 rounded-xl bg-white/5 border border-white/10 font-bold text-xs hover:bg-white/10 transition text-white"
               >Contact</a
             >
           </div>
@@ -370,7 +404,7 @@
         </div>
       </div>
     </section>
-    <section id="about" class="px-4 md:px-6 lg:px-24 bg-[#05011a]">
+    <section id="about" class="interactive-section" class="px-4 md:px-6 lg:px-24 bg-[#05011a]">
       <div class="max-w-4xl mx-auto w-full text-center reveal-3d">
         <div class="mb-6">
           <h2 class="text-violet-500 font-bold text-3xl md:text-5xl mb-2">
@@ -408,19 +442,19 @@
           <a
             href="./Documents/Mohamed Fouad_CV.pdf"
             download="Mohamed Fouad_CV.pdf"
-            class="bg-violet-600 hover:bg-violet-700 px-8 py-3.5 rounded-xl inline-flex items-center gap-3 transition font-bold text-sm shadow-lg shadow-violet-600/30 text-white no-underline"
+            class="magnetic bg-violet-600 hover:bg-violet-700 px-8 py-3.5 rounded-xl inline-flex items-center gap-3 transition font-bold text-sm shadow-lg shadow-violet-600/30 text-white no-underline"
           >
             <i class="fa-solid fa-file-arrow-down"></i> Download CV
           </a>
           <a
             href="#portfolio"
-            class="border border-violet-500/40 hover:bg-violet-500/10 text-violet-300 px-8 py-3.5 rounded-xl flex items-center gap-3 transition font-bold text-sm"
+            class="magnetic border border-violet-500/40 hover:bg-violet-500/10 text-violet-300 px-8 py-3.5 rounded-xl flex items-center gap-3 transition font-bold text-sm"
             ><i class="fa-solid fa-code"></i> View Projects</a
           >
         </div>
       </div>
     </section>
-    <section id="portfolio" class="px-4 md:px-6 lg:px-24 bg-[#030014] py-24">
+    <section id="portfolio" class="interactive-section" class="px-4 md:px-6 lg:px-24 bg-[#030014] py-24">
       <div class="w-[90%] max-w-[1400px] mx-auto">
         <div class="text-center mb-16 reveal-3d">
           <h2 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
@@ -460,7 +494,7 @@
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
               >
                 <div class="card-inner-3d">
                   <div
@@ -517,7 +551,7 @@
             </div>
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
               >
                 <div class="card-inner-3d">
                   <div
@@ -567,7 +601,7 @@
             </div>
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
               >
                 <div class="card-inner-3d">
                   <div
@@ -621,7 +655,7 @@
             </div>
             <div class="tilt-wrap reveal-3d">
               <div
-                class="project-card rounded-3xl p-5 hover:border-violet-500/30"
+                class="project-card interactive-card rounded-3xl p-5 hover:border-violet-500/30"
               >
                 <div class="card-inner-3d">
                   <div
@@ -680,7 +714,7 @@
         <div id="certificates" class="content-pane">
           <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div
-              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+              class="project-card interactive-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
             >
               <div
                 class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
@@ -699,7 +733,7 @@
               </div>
             </div>
             <div
-              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+              class="project-card interactive-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
             >
               <div
                 class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
@@ -721,7 +755,7 @@
               </div>
             </div>
             <div
-              class="project-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
+              class="project-card interactive-card rounded-3xl p-4 transition-all duration-300 hover:border-violet-500/30"
             >
               <div
                 class="aspect-[4/3] bg-black/40 rounded-2xl overflow-hidden mb-6 border border-white/5 group"
@@ -749,7 +783,7 @@
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
           >
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-brands fa-node-js text-5xl text-green-500 mb-4 transition"
@@ -761,7 +795,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-brands fa-node-js text-5xl text-gray-400 mb-4 transition"
@@ -773,7 +807,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-solid fa-code text-5xl text-blue-400 mb-4 transition"
@@ -785,7 +819,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-solid fa-server text-5xl text-red-500 mb-4 transition"
@@ -797,7 +831,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-solid fa-database text-5xl text-green-400 mb-4 transition"
@@ -809,7 +843,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-brands fa-aws text-5xl text-orange-400 mb-4 transition"
@@ -821,7 +855,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-solid fa-plug text-5xl text-gray-200 mb-4 transition"
@@ -833,7 +867,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-brands fa-git-alt text-5xl text-orange-600 mb-4 transition"
@@ -845,7 +879,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-brands fa-github text-5xl text-white mb-4 transition"
@@ -857,7 +891,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-solid fa-space-shuttle text-5xl text-orange-500 mb-4 transition"
@@ -869,7 +903,7 @@
               </p>
             </div>
             <div
-              class="project-card tech-icon-3d rounded-2xl p-6 text-center group"
+              class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
               <i
                 class="fa-solid fa-shield-halved text-5xl text-violet-400 mb-4 transition"
@@ -884,7 +918,7 @@
         </div>
       </div>
     </section>
-    <section id="contact" class="px-4 md:px-6 lg:px-24 bg-[#05011a] py-24">
+    <section id="contact" class="interactive-section" class="px-4 md:px-6 lg:px-24 bg-[#05011a] py-24">
       <div class="max-w-6xl mx-auto w-full reveal-3d">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div
@@ -903,7 +937,7 @@
             </p>
             <div class="flex flex-col gap-4 w-full max-w-md">
               <div
-                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+                class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
                 <div
                   class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
@@ -922,7 +956,7 @@
                 </div>
               </div>
               <div
-                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+                class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
                 <div
                   class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
@@ -944,7 +978,7 @@
                 </div>
               </div>
               <div
-                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+                class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
                 <div
                   class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
@@ -968,7 +1002,7 @@
                 </div>
               </div>
               <div
-                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+                class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
                 <div
                   class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
@@ -990,7 +1024,7 @@
                 </div>
               </div>
               <div
-                class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
+                class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
                 <div
                   class="w-12 h-12 shrink-0 rounded-xl bg-violet-500/10 flex items-center justify-center"
@@ -1082,6 +1116,7 @@
       function copyEmail() {
         const email = "mohmed.foouad@gmail.com";
         navigator.clipboard.writeText(email);
+        if (window.showToast) window.showToast("Email copied successfully");
         const emailText = document.getElementById("emailText");
         emailText.innerText = "Email Copied!";
         emailText.classList.add("text-violet-400");
@@ -1243,6 +1278,47 @@
         );
         items.forEach((item) => observer.observe(item));
       })();
+
+      (function initGlobalInteractions() {
+        const glow = document.getElementById("cursorGlow");
+        const progress = document.getElementById("progressBar");
+        const toast = document.getElementById("toast");
+        let toastTimer;
+
+        window.addEventListener("pointermove", (e) => {
+          if (glow) {
+            glow.style.left = e.clientX + "px";
+            glow.style.top = e.clientY + "px";
+          }
+        });
+
+        window.addEventListener("scroll", () => {
+          const max = document.documentElement.scrollHeight - window.innerHeight;
+          progress.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : "0%";
+          document.body.classList.toggle("nav-scrolled", window.scrollY > 30);
+        }, { passive: true });
+
+        document.querySelectorAll(".magnetic").forEach((el) => {
+          el.addEventListener("mousemove", (e) => {
+            const r = el.getBoundingClientRect();
+            const x = (e.clientX - r.left - r.width / 2) * 0.12;
+            const y = (e.clientY - r.top - r.height / 2) * 0.18;
+            el.style.transform = `translate(${x}px, ${y}px)`;
+          });
+          el.addEventListener("mouseleave", () => {
+            el.style.transform = "";
+          });
+        });
+
+        window.showToast = (message) => {
+          if (!toast) return;
+          toast.textContent = message;
+          toast.classList.add("show");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+        };
+      })();
+
     </script>
   </body>
 </html>
