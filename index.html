@@ -180,7 +180,9 @@
       }
       .quote-tilt {
         transform-style: preserve-3d;
-        transition: transform 0.2s ease, border-color 0.3s ease;
+        transition:
+          transform 0.2s ease,
+          border-color 0.3s ease;
       }
       .quote-tilt:hover {
         border-color: rgba(139, 92, 246, 0.55);
@@ -243,7 +245,8 @@
         transition: all 0.4s cubic-bezier(0.2, 0.8, 0.3, 1);
       }
       .tech-icon-3d:hover .tech-icon-wrap {
-        box-shadow: 0 0 26px color-mix(in srgb, var(--tech-color) 55%, transparent);
+        box-shadow: 0 0 26px
+          color-mix(in srgb, var(--tech-color) 55%, transparent);
         transform: translateZ(25px) scale(1.08);
         background: color-mix(in srgb, var(--tech-color) 22%, transparent);
       }
@@ -404,40 +407,545 @@
         transform: rotateY(25deg) rotateX(15deg) scale(1.08) translateZ(20px);
       }
 
-      .cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(139,92,246,.13),rgba(59,130,246,.05) 35%,transparent 70%);transform:translate(-50%,-50%);mix-blend-mode:screen;transition:left .08s linear,top .08s linear}
-      .section-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-      .orb-3d{position:absolute;border-radius:50%;filter:blur(1px);opacity:.55;animation:orbFloat 10s ease-in-out infinite;transform-style:preserve-3d}
-      .orb-3d.one{width:180px;height:180px;top:14%;left:7%;background:radial-gradient(circle at 30% 30%,#c4b5fd,rgba(139,92,246,.12) 38%,transparent 70%);box-shadow:0 0 90px rgba(139,92,246,.25)}
-      .orb-3d.two{width:120px;height:120px;right:9%;bottom:12%;background:radial-gradient(circle at 30% 30%,#93c5fd,rgba(59,130,246,.12) 42%,transparent 70%);animation-delay:-4s}
-      .orb-3d.three{width:70px;height:70px;right:20%;top:22%;background:radial-gradient(circle at 30% 30%,#f0abfc,rgba(236,72,153,.1) 45%,transparent 70%);animation-delay:-7s}
-      @keyframes orbFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}50%{transform:translate3d(35px,-45px,80px) rotate(180deg) scale(1.15)}}
-      .section-content{position:relative;z-index:2}
-      .magnetic{transition:transform .2s ease,box-shadow .3s ease}
-      .magnetic:hover{box-shadow:0 15px 45px rgba(139,92,246,.28)}
-      .interactive-card{position:relative;overflow:hidden}
-      .interactive-card::before{content:"";position:absolute;inset:-2px;background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.16),transparent 75%);transform:translateX(-100%);transition:transform .7s ease;pointer-events:none}
-      .interactive-card:hover::before{transform:translateX(100%)}
-      .interactive-card:hover{border-color:rgba(167,139,250,.55)!important}
-      .tech-icon-3d:hover i{transform:translateZ(45px) scale(1.15);filter:drop-shadow(0 0 18px currentColor)}
-      .contact-card{transform-style:preserve-3d;transition:transform .25s ease,border-color .3s ease}
-      .contact-card:hover{transform:translateY(-5px) translateZ(15px);border-color:rgba(139,92,246,.55)!important}
-      .nav-container{transition:transform .3s ease,background .3s ease,border-color .3s ease}
-      .nav-scrolled .nav-container{background:rgba(3,0,20,.94);border-color:rgba(139,92,246,.42);box-shadow:0 12px 40px rgba(0,0,0,.28)}
-      .progress-bar{position:fixed;top:0;left:0;width:0;height:3px;z-index:9999;background:linear-gradient(90deg,#8b5cf6,#60a5fa,#c084fc);box-shadow:0 0 18px rgba(139,92,246,.8)}
-      .section-title-3d{display:inline-block;text-shadow:0 12px 30px rgba(139,92,246,.2);animation:titlePulse 4s ease-in-out infinite}
-      @keyframes titlePulse{50%{transform:translateY(-3px);text-shadow:0 20px 45px rgba(139,92,246,.45)}}
-      .hero-ring{position:absolute;width:440px;height:440px;border:1px solid rgba(139,92,246,.22);border-radius:50%;animation:spinRing 18s linear infinite}
-      .hero-ring::before,.hero-ring::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#a78bfa;box-shadow:0 0 25px #8b5cf6}
-      .hero-ring::before{top:12%;left:12%}.hero-ring::after{right:9%;bottom:18%;background:#60a5fa}
-      @keyframes spinRing{to{transform:rotate(360deg)}}
-      .toast{position:fixed;right:24px;bottom:24px;z-index:9999;padding:14px 20px;border:1px solid rgba(167,139,250,.45);border-radius:16px;background:rgba(10,5,35,.9);backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(0,0,0,.35);transform:translateY(100px);opacity:0;transition:.4s}
-      .toast.show{transform:translateY(0);opacity:1}
-      .tab-container{transform-style:preserve-3d;transition:transform .3s ease}
-      .float-slow{animation:float 8s ease-in-out infinite}
-      .float-slow-rev{animation:floatRev 9s ease-in-out infinite}
-      @keyframes floatRev{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
-      @media(max-width:768px){.cursor-glow{display:none}.hero-ring{width:280px;height:280px}.orb-3d.one{width:110px;height:110px}#portfolio-particles{opacity:.35}#about-particles,#contact-particles{opacity:.25}}
+      .cursor-glow {
+        position: fixed;
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+        background: radial-gradient(
+          circle,
+          rgba(139, 92, 246, 0.13),
+          rgba(59, 130, 246, 0.05) 35%,
+          transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        mix-blend-mode: screen;
+        transition:
+          left 0.08s linear,
+          top 0.08s linear;
+      }
+      .section-orbs {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .orb-3d {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(1px);
+        opacity: 0.55;
+        animation: orbFloat 10s ease-in-out infinite;
+        transform-style: preserve-3d;
+      }
+      .orb-3d.one {
+        width: 180px;
+        height: 180px;
+        top: 14%;
+        left: 7%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #c4b5fd,
+          rgba(139, 92, 246, 0.12) 38%,
+          transparent 70%
+        );
+        box-shadow: 0 0 90px rgba(139, 92, 246, 0.25);
+      }
+      .orb-3d.two {
+        width: 120px;
+        height: 120px;
+        right: 9%;
+        bottom: 12%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #93c5fd,
+          rgba(59, 130, 246, 0.12) 42%,
+          transparent 70%
+        );
+        animation-delay: -4s;
+      }
+      .orb-3d.three {
+        width: 70px;
+        height: 70px;
+        right: 20%;
+        top: 22%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #f0abfc,
+          rgba(236, 72, 153, 0.1) 45%,
+          transparent 70%
+        );
+        animation-delay: -7s;
+      }
+      @keyframes orbFloat {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate3d(35px, -45px, 80px) rotate(180deg) scale(1.15);
+        }
+      }
+      .section-content {
+        position: relative;
+        z-index: 2;
+      }
+      .magnetic {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.3s ease;
+      }
+      .magnetic:hover {
+        box-shadow: 0 15px 45px rgba(139, 92, 246, 0.28);
+      }
+      .interactive-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .interactive-card::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(
+          120deg,
+          transparent 25%,
+          rgba(255, 255, 255, 0.16),
+          transparent 75%
+        );
+        transform: translateX(-100%);
+        transition: transform 0.7s ease;
+        pointer-events: none;
+      }
+      .interactive-card:hover::before {
+        transform: translateX(100%);
+      }
+      .interactive-card:hover {
+        border-color: rgba(167, 139, 250, 0.55) !important;
+      }
+      .tech-icon-3d:hover i {
+        transform: translateZ(45px) scale(1.15);
+        filter: drop-shadow(0 0 18px currentColor);
+      }
+      .contact-card {
+        transform-style: preserve-3d;
+        transition:
+          transform 0.25s ease,
+          border-color 0.3s ease;
+      }
+      .contact-card:hover {
+        transform: translateY(-5px) translateZ(15px);
+        border-color: rgba(139, 92, 246, 0.55) !important;
+      }
+      .nav-container {
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .nav-scrolled .nav-container {
+        background: rgba(3, 0, 20, 0.94);
+        border-color: rgba(139, 92, 246, 0.42);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+      }
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        z-index: 9999;
+        background: linear-gradient(90deg, #8b5cf6, #60a5fa, #c084fc);
+        box-shadow: 0 0 18px rgba(139, 92, 246, 0.8);
+      }
+      .section-title-3d {
+        display: inline-block;
+        text-shadow: 0 12px 30px rgba(139, 92, 246, 0.2);
+        animation: titlePulse 4s ease-in-out infinite;
+      }
+      @keyframes titlePulse {
+        50% {
+          transform: translateY(-3px);
+          text-shadow: 0 20px 45px rgba(139, 92, 246, 0.45);
+        }
+      }
+      .hero-ring {
+        position: absolute;
+        width: 440px;
+        height: 440px;
+        border: 1px solid rgba(139, 92, 246, 0.22);
+        border-radius: 50%;
+        animation: spinRing 18s linear infinite;
+      }
+      .hero-ring::before,
+      .hero-ring::after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #a78bfa;
+        box-shadow: 0 0 25px #8b5cf6;
+      }
+      .hero-ring::before {
+        top: 12%;
+        left: 12%;
+      }
+      .hero-ring::after {
+        right: 9%;
+        bottom: 18%;
+        background: #60a5fa;
+      }
+      @keyframes spinRing {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .toast {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 9999;
+        padding: 14px 20px;
+        border: 1px solid rgba(167, 139, 250, 0.45);
+        border-radius: 16px;
+        background: rgba(10, 5, 35, 0.9);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        transform: translateY(100px);
+        opacity: 0;
+        transition: 0.4s;
+      }
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .tab-container {
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+      }
+      .float-slow {
+        animation: float 8s ease-in-out infinite;
+      }
+      .float-slow-rev {
+        animation: floatRev 9s ease-in-out infinite;
+      }
+      @keyframes floatRev {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(16px);
+        }
+      }
+      .stats-card {
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(139, 92, 246, 0.025)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(16px);
+        transition:
+          transform 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
 
+      .stats-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(167, 139, 250, 0.42);
+        box-shadow:
+          0 25px 55px rgba(0, 0, 0, 0.3),
+          0 0 35px rgba(139, 92, 246, 0.12);
+      }
+
+      .stats-icon {
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 16px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a78bfa;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.08);
+      }
+
+      .stats-number {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        background: linear-gradient(135deg, #fff, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .stats-card p {
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #fff;
+      }
+
+      .stats-card > span {
+        display: block;
+        margin-top: 6px;
+        color: #64748b;
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      #backToTop {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        width: 52px;
+        height: 52px;
+        z-index: 9998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 17px;
+        color: white;
+        background: linear-gradient(
+          145deg,
+          rgba(139, 92, 246, 0.95),
+          rgba(109, 40, 217, 0.95)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow:
+          0 15px 40px rgba(0, 0, 0, 0.35),
+          0 0 30px rgba(139, 92, 246, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(18px) scale(0.9);
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      #backToTop::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+
+      #backToTop.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+
+      #backToTop:hover {
+        transform: translateY(-5px) scale(1.04);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.4),
+          0 0 40px rgba(139, 92, 246, 0.4);
+      }
+
+      #backToTop i {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+      }
+
+      #backToTop:hover i {
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .cursor-glow {
+          display: none;
+        }
+        .hero-ring {
+          width: 280px;
+          height: 280px;
+        }
+        .orb-3d.one {
+          width: 110px;
+          height: 110px;
+        }
+        #portfolio-particles {
+          opacity: 0.35;
+        }
+        #about-particles,
+        #contact-particles {
+          opacity: 0.25;
+        }
+      }
+
+      /* Enhanced premium motion layer */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background:
+          radial-gradient(
+            circle at 50% 0%,
+            rgba(139, 92, 246, 0.1),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 100% 45%,
+            rgba(59, 130, 246, 0.06),
+            transparent 30%
+          );
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link:not(.active)::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #8b5cf6, #60a5fa);
+        transition:
+          width 0.35s ease,
+          left 0.35s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+        left: 0;
+      }
+      .nav-link:hover {
+        color: white !important;
+        text-shadow: 0 0 18px rgba(167, 139, 250, 0.65);
+      }
+
+      .project-card {
+        transition:
+          transform 0.18s ease-out,
+          box-shadow 0.35s ease,
+          border-color 0.35s ease,
+          background 0.35s ease !important;
+      }
+      .project-card:hover {
+        background: rgba(255, 255, 255, 0.055);
+        box-shadow:
+          0 28px 70px rgba(0, 0, 0, 0.32),
+          0 0 0 1px rgba(139, 92, 246, 0.16);
+      }
+      .project-card img {
+        transition:
+          transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+          filter 0.5s ease !important;
+      }
+      .project-card:hover img {
+        filter: saturate(1.12) contrast(1.04);
+      }
+
+      .tech-chip {
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          border-color 0.25s ease;
+      }
+      .tech-chip:hover {
+        transform: translateY(-3px) scale(1.04);
+        background: rgba(139, 92, 246, 0.14);
+        border-color: rgba(167, 139, 250, 0.42);
+      }
+      .btn-primary,
+      .btn-details-full {
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .btn-primary::before,
+      .btn-details-full::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          115deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.26),
+          transparent 65%
+        );
+        transform: translateX(-120%);
+        transition: transform 0.65s ease;
+        z-index: -1;
+      }
+      .btn-primary:hover::before,
+      .btn-details-full:hover::before {
+        transform: translateX(120%);
+      }
+
+      .section-content {
+        animation: sectionBreath 8s ease-in-out infinite;
+      }
+      @keyframes sectionBreath {
+        50% {
+          transform: translateY(-2px);
+        }
+      }
+
+      .hero-3d-wrap::before {
+        content: "";
+        position: absolute;
+        width: 82%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px dashed rgba(167, 139, 250, 0.24);
+        animation: spinRingReverse 28s linear infinite;
+      }
+      @keyframes spinRingReverse {
+        to {
+          transform: rotate(-360deg);
+        }
+      }
+
+      .section-divider {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: min(78%, 1000px);
+        height: 1px;
+        transform: translateX(-50%);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(139, 92, 246, 0.35),
+          rgba(96, 165, 250, 0.25),
+          transparent
+        );
+      }
+
+      .reveal-3d:nth-child(2) {
+        transition-delay: 0.08s;
+      }
+      .reveal-3d:nth-child(3) {
+        transition-delay: 0.16s;
+      }
+
+      @media (max-width: 768px) {
+        .section-content {
+          animation: none;
+        }
+        .hero-3d-wrap::before {
+          width: 72%;
+        }
+      }
     </style>
   </head>
   <body class="overflow-x-hidden">
@@ -447,6 +955,9 @@
       <div class="aurora-blob c"></div>
     </div>
     <div class="progress-bar" id="progressBar"></div>
+    <button id="backToTop" aria-label="Back to top" title="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="toast" id="toast">Copied successfully</div>
     <div
@@ -472,6 +983,9 @@
             <a href="#about" class="nav-link text-white/70 transition">About</a>
           </li>
           <li>
+            <a href="#stats" class="nav-link text-white/70 transition">Stats</a>
+          </li>
+          <li>
             <a href="#portfolio" class="nav-link text-white/70 transition"
               >Portfolio</a
             >
@@ -492,6 +1006,7 @@
       </div>
     </nav>
     <section id="home" class="grid-bg px-4 md:px-6 lg:px-24">
+      <div class="section-divider"></div>
       <canvas id="particles-canvas"></canvas>
       <div
         class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center w-full pt-10 md:pt-16 relative z-10"
@@ -567,14 +1082,23 @@
           />
         </div>
       </div>
+      <div class="section-divider"></div>
     </section>
-    <section id="about" class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#05011a] overflow-hidden">
+    <section
+      id="about"
+      class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#05011a] overflow-hidden"
+    >
       <canvas id="about-particles"></canvas>
       <div class="section-orbs">
-        <div class="orb-3d one float-slow" style="left:4%;top:20%"></div>
-        <div class="orb-3d two float-slow-rev" style="right:6%;bottom:16%"></div>
+        <div class="orb-3d one float-slow" style="left: 4%; top: 20%"></div>
+        <div
+          class="orb-3d two float-slow-rev"
+          style="right: 6%; bottom: 16%"
+        ></div>
       </div>
-      <div class="max-w-4xl mx-auto w-full text-center reveal-3d section-content">
+      <div
+        class="max-w-4xl mx-auto w-full text-center reveal-3d section-content"
+      >
         <div class="mb-6">
           <div
             class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/20 bg-violet-500/5 mb-4"
@@ -611,9 +1135,8 @@
             <i class="fa-solid fa-quote-left text-violet-400 text-lg"></i>
           </div>
           <p class="text-gray-300 text-sm md:text-base leading-relaxed pt-3">
-            Focusing on clean code and modular architecture to transform
-            complex business requirements into high-performance digital
-            solutions.
+            Focusing on clean code and modular architecture to transform complex
+            business requirements into high-performance digital solutions.
           </p>
         </div>
         <div class="flex flex-wrap justify-center gap-4">
@@ -631,8 +1154,82 @@
           >
         </div>
       </div>
+      <div class="section-divider"></div>
     </section>
-    <section id="portfolio" class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#030014] py-24 overflow-hidden">
+
+    <section
+      id="stats"
+      class="relative px-4 md:px-6 lg:px-24 bg-[#030014] py-20 overflow-hidden"
+    >
+      <div class="section-orbs">
+        <div
+          class="orb-3d one float-slow"
+          style="left: -5%; top: 20%; opacity: 0.25"
+        ></div>
+        <div
+          class="orb-3d two float-slow-rev"
+          style="right: -3%; bottom: 10%; opacity: 0.2"
+        ></div>
+      </div>
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12 reveal-3d">
+          <span
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/20 bg-violet-500/5 mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-300"
+          >
+            <i class="fa-solid fa-chart-simple text-violet-400"></i> At a Glance
+          </span>
+          <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+            Built with <span class="text-violet-500">Purpose</span>
+          </h2>
+          <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+            A quick look at the work, technologies, and backend expertise behind
+            the portfolio.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div
+            class="stats-card interactive-card reveal-3d rounded-[26px] p-6 md:p-8 text-center"
+          >
+            <div class="stats-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="stats-number" data-count="4">0</div>
+            <p>Projects</p>
+            <span>Featured builds</span>
+          </div>
+          <div
+            class="stats-card interactive-card reveal-3d rounded-[26px] p-6 md:p-8 text-center"
+          >
+            <div class="stats-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="stats-number" data-count="14">0</div>
+            <p>Technologies</p>
+            <span>Tools &amp; stack</span>
+          </div>
+          <div
+            class="stats-card interactive-card reveal-3d rounded-[26px] p-6 md:p-8 text-center"
+          >
+            <div class="stats-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="stats-number" data-count="3">0</div>
+            <p>Certificates</p>
+            <span>Continuous learning</span>
+          </div>
+          <div
+            class="stats-card interactive-card reveal-3d rounded-[26px] p-6 md:p-8 text-center"
+          >
+            <div class="stats-icon"><i class="fa-solid fa-server"></i></div>
+            <div class="stats-number" data-count="100">0</div>
+            <p>Backend Focus</p>
+            <span>APIs &amp; systems</span>
+          </div>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+    </section>
+
+    <section
+      id="portfolio"
+      class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#030014] py-24 overflow-hidden"
+    >
       <canvas id="portfolio-particles"></canvas>
       <div class="section-orbs">
         <div class="orb-3d one float-slow"></div>
@@ -641,7 +1238,9 @@
       </div>
       <div class="w-[90%] max-w-[1400px] mx-auto section-content">
         <div class="text-center mb-16 reveal-3d">
-          <h2 class="section-title-3d text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
+          <h2
+            class="section-title-3d text-5xl md:text-6xl font-extrabold mb-4 tracking-tight"
+          >
             Portfolio <span class="text-violet-500">Showcase</span>
           </h2>
           <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
@@ -707,30 +1306,44 @@
                     </p>
                     <div class="flex flex-wrap gap-2 mb-5">
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#4ade80"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #4ade80"
+                        ></span
                         >Node.js</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#facc15"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #facc15"
+                        ></span
                         >MongoDB</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#60a5fa"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #60a5fa"
+                        ></span
                         >TypeScript</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#f472b6"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #f472b6"
+                        ></span
                         >Socket.io</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#fb923c"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #fb923c"
+                        ></span
                         >AWS</span
                       >
                     </div>
-                    <a
-                      href="./projects/social.html"
-                      class="btn-details-full"
-                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    <a href="./projects/social.html" class="btn-details-full"
+                      >View Project
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i
                     ></a>
                   </div>
                 </div>
@@ -764,26 +1377,37 @@
                     </p>
                     <div class="flex flex-wrap gap-2 mb-5">
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#4ade80"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #4ade80"
+                        ></span
                         >Node.js</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#facc15"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #facc15"
+                        ></span
                         >MongoDB</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#eab308"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #eab308"
+                        ></span
                         >JavaScript</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#38bdf8"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #38bdf8"
+                        ></span
                         >Cloudinary</span
                       >
                     </div>
-                    <a
-                      href="./projects/sara7a.html"
-                      class="btn-details-full"
-                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    <a href="./projects/sara7a.html" class="btn-details-full"
+                      >View Project
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i
                     ></a>
                   </div>
                 </div>
@@ -808,39 +1432,56 @@
                     >
                   </div>
                   <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-lg font-bold mb-2">Nova Chat Application</h4>
+                    <h4 class="text-lg font-bold mb-2">
+                      Nova Chat Application
+                    </h4>
                     <p
                       class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
                     >
-                      A secure, real-time messaging platform featuring end-to-end
-                      anonymity options and scalable cloud-based media storage.
+                      A secure, real-time messaging platform featuring
+                      end-to-end anonymity options and scalable cloud-based
+                      media storage.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-5">
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#4ade80"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #4ade80"
+                        ></span
                         >Node.js</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#facc15"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #facc15"
+                        ></span
                         >MongoDB</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#60a5fa"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #60a5fa"
+                        ></span
                         >TypeScript</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#f472b6"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #f472b6"
+                        ></span
                         >Socket.io</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#fb923c"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #fb923c"
+                        ></span
                         >AWS</span
                       >
                     </div>
-                    <a
-                      href="./projects/novaChat.html"
-                      class="btn-details-full"
-                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                    <a href="./projects/novaChat.html" class="btn-details-full"
+                      >View Project
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i
                     ></a>
                   </div>
                 </div>
@@ -866,40 +1507,58 @@
                     >
                   </div>
                   <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-lg font-bold mb-2">E-Commerce Application</h4>
+                    <h4 class="text-lg font-bold mb-2">
+                      E-Commerce Application
+                    </h4>
                     <p
                       class="text-gray-400 text-sm mb-5 leading-relaxed flex-grow"
                     >
-                      Advanced E-commerce backend powered by NestJS, featuring JWT
-                      authentication, real-time notifications, and local file
-                      storage for product assets
+                      Advanced E-commerce backend powered by NestJS, featuring
+                      JWT authentication, real-time notifications, and local
+                      file storage for product assets
                     </p>
                     <div class="flex flex-wrap gap-2 mb-5">
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#4ade80"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #4ade80"
+                        ></span
                         >Node.js</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#facc15"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #facc15"
+                        ></span
                         >MongoDB</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#f472b6"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #f472b6"
+                        ></span
                         >NestJS</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#60a5fa"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #60a5fa"
+                        ></span
                         >Zod</span
                       >
                       <span class="tech-chip"
-                        ><span class="tech-dot" style="background:#fb923c"></span
+                        ><span
+                          class="tech-dot"
+                          style="background: #fb923c"
+                        ></span
                         >Payment</span
                       >
                     </div>
                     <a
                       href="./projects/e-commerce.html"
                       class="btn-details-full"
-                      >View Project <i class="fa-solid fa-arrow-right text-[10px]"></i
+                      >View Project
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i
                     ></a>
                   </div>
                 </div>
@@ -964,7 +1623,9 @@
               class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40 md:col-span-2"
             >
               <div class="grid md:grid-cols-[minmax(0,340px)_1fr]">
-                <div class="relative aspect-[4/3] md:aspect-auto overflow-hidden">
+                <div
+                  class="relative aspect-[4/3] md:aspect-auto overflow-hidden"
+                >
                   <img
                     src="./assets/Introduction to Git and GitHub.jpg"
                     class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
@@ -974,7 +1635,8 @@
                   ></div>
                   <span
                     class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
-                    ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
+                    ><i class="fa-solid fa-award text-[10px]"></i>
+                    Certified</span
                   >
                 </div>
                 <div class="p-6 flex flex-col justify-center">
@@ -982,9 +1644,9 @@
                     Introduction to Git and GitHub
                   </h4>
                   <p class="text-gray-400 text-sm leading-relaxed">
-                    Comprehensive program focused on Git, GitHub, version control
-                    workflows, branching strategies, collaboration, and repository
-                    management.
+                    Comprehensive program focused on Git, GitHub, version
+                    control workflows, branching strategies, collaboration, and
+                    repository management.
                   </p>
                 </div>
               </div>
@@ -998,7 +1660,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#4ade80">
+              <div class="tech-icon-wrap" style="--tech-color: #4ade80">
                 <i class="fa-brands fa-node-js"></i>
               </div>
               <p
@@ -1010,7 +1672,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#9ca3af">
+              <div class="tech-icon-wrap" style="--tech-color: #9ca3af">
                 <i class="fa-brands fa-node-js"></i>
               </div>
               <p
@@ -1022,7 +1684,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#60a5fa">
+              <div class="tech-icon-wrap" style="--tech-color: #60a5fa">
                 <i class="fa-solid fa-code"></i>
               </div>
               <p
@@ -1034,7 +1696,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#ef4444">
+              <div class="tech-icon-wrap" style="--tech-color: #ef4444">
                 <i class="fa-solid fa-server"></i>
               </div>
               <p
@@ -1046,7 +1708,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#4ade80">
+              <div class="tech-icon-wrap" style="--tech-color: #4ade80">
                 <i class="fa-solid fa-database"></i>
               </div>
               <p
@@ -1058,7 +1720,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#fb923c">
+              <div class="tech-icon-wrap" style="--tech-color: #fb923c">
                 <i class="fa-brands fa-aws"></i>
               </div>
               <p
@@ -1070,7 +1732,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#e5e7eb">
+              <div class="tech-icon-wrap" style="--tech-color: #e5e7eb">
                 <i class="fa-solid fa-plug"></i>
               </div>
               <p
@@ -1082,7 +1744,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#f97316">
+              <div class="tech-icon-wrap" style="--tech-color: #f97316">
                 <i class="fa-brands fa-git-alt"></i>
               </div>
               <p
@@ -1094,7 +1756,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#f5f5f5">
+              <div class="tech-icon-wrap" style="--tech-color: #f5f5f5">
                 <i class="fa-brands fa-github"></i>
               </div>
               <p
@@ -1106,7 +1768,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#f97316">
+              <div class="tech-icon-wrap" style="--tech-color: #f97316">
                 <i class="fa-solid fa-space-shuttle"></i>
               </div>
               <p
@@ -1118,7 +1780,7 @@
             <div
               class="project-card interactive-card tech-icon-3d rounded-2xl p-6 text-center group"
             >
-              <div class="tech-icon-wrap" style="--tech-color:#a78bfa">
+              <div class="tech-icon-wrap" style="--tech-color: #a78bfa">
                 <i class="fa-solid fa-shield-halved"></i>
               </div>
               <p
@@ -1131,11 +1793,20 @@
         </div>
       </div>
     </section>
-    <section id="contact" class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#05011a] py-24 overflow-hidden">
+    <section
+      id="contact"
+      class="interactive-section relative px-4 md:px-6 lg:px-24 bg-[#05011a] py-24 overflow-hidden"
+    >
       <canvas id="contact-particles"></canvas>
       <div class="section-orbs">
-        <div class="orb-3d three float-slow" style="left:10%;bottom:8%"></div>
-        <div class="orb-3d two float-slow-rev" style="right:5%;top:10%"></div>
+        <div
+          class="orb-3d three float-slow"
+          style="left: 10%; bottom: 8%"
+        ></div>
+        <div
+          class="orb-3d two float-slow-rev"
+          style="right: 5%; top: 10%"
+        ></div>
       </div>
       <div class="max-w-6xl mx-auto w-full reveal-3d section-content">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -1145,7 +1816,9 @@
             <div
               class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/20 bg-violet-500/5 mb-4"
             >
-              <i class="fa-solid fa-paper-plane text-violet-400 text-[10px]"></i>
+              <i
+                class="fa-solid fa-paper-plane text-violet-400 text-[10px]"
+              ></i>
               <span
                 class="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-300"
                 >Get In Touch</span
@@ -1166,7 +1839,10 @@
               <div
                 class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
-                <div class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg" style="--tech-color:#a78bfa">
+                <div
+                  class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg"
+                  style="--tech-color: #a78bfa"
+                >
                   <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div class="text-left">
@@ -1183,7 +1859,10 @@
               <div
                 class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
-                <div class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg" style="--tech-color:#4ade80">
+                <div
+                  class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg"
+                  style="--tech-color: #4ade80"
+                >
                   <i class="fa-brands fa-whatsapp"></i>
                 </div>
                 <div class="text-left">
@@ -1203,7 +1882,10 @@
               <div
                 class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
-                <div class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg" style="--tech-color:#60a5fa">
+                <div
+                  class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg"
+                  style="--tech-color: #60a5fa"
+                >
                   <i class="fa-brands fa-linkedin-in"></i>
                 </div>
                 <div class="text-left">
@@ -1223,7 +1905,10 @@
               <div
                 class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
-                <div class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg" style="--tech-color:#f5f5f5">
+                <div
+                  class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg"
+                  style="--tech-color: #f5f5f5"
+                >
                   <i class="fa-brands fa-github"></i>
                 </div>
                 <div class="text-left">
@@ -1243,7 +1928,10 @@
               <div
                 class="contact-card bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4 hover:border-violet-500/50 transition-colors"
               >
-                <div class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg" style="--tech-color:#f472b6">
+                <div
+                  class="tech-icon-wrap !m-0 !w-12 !h-12 !rounded-xl !text-lg"
+                  style="--tech-color: #f472b6"
+                >
                   <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div class="text-left">
@@ -1350,6 +2038,13 @@
       const sections = document.querySelectorAll("section");
       const navLinks = document.querySelectorAll(".nav-link");
       window.addEventListener("scroll", () => {
+        const scrollable =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress =
+          scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) progressBar.style.width = progress + "%";
+
         let current = "";
         sections.forEach((section) => {
           const sectionTop = section.offsetTop;
@@ -1364,6 +2059,49 @@
           }
         });
       });
+
+      const backToTop = document.getElementById("backToTop");
+      const statsNumbers = document.querySelectorAll(".stats-number");
+      let statsAnimated = false;
+
+      function animateStats() {
+        if (statsAnimated) return;
+        const statsSection = document.getElementById("stats");
+        if (!statsSection) return;
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.82 && rect.bottom > 0) {
+          statsAnimated = true;
+          statsNumbers.forEach((counter) => {
+            const target = Number(counter.dataset.count || 0);
+            const duration = 1200;
+            const start = performance.now();
+            const tick = (now) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              counter.textContent =
+                Math.floor(target * eased) + (target >= 100 ? "%" : "+");
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+        }
+      }
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (window.scrollY > 520) backToTop.classList.add("show");
+          else backToTop.classList.remove("show");
+          animateStats();
+        },
+        { passive: true },
+      );
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      animateStats();
 
       (function initParticles3D() {
         const canvas = document.getElementById("particles-canvas");
@@ -1484,9 +2222,21 @@
 
         const shapes = [];
         const shapeConfigs = [
-          { geo: new THREE.IcosahedronGeometry(90, 0), color: 0x8b5cf6, pos: [-560, 260, -300] },
-          { geo: new THREE.TorusGeometry(70, 18, 10, 24), color: 0x60a5fa, pos: [560, -220, -260] },
-          { geo: new THREE.OctahedronGeometry(60, 0), color: 0xc084fc, pos: [0, 380, -420] },
+          {
+            geo: new THREE.IcosahedronGeometry(90, 0),
+            color: 0x8b5cf6,
+            pos: [-560, 260, -300],
+          },
+          {
+            geo: new THREE.TorusGeometry(70, 18, 10, 24),
+            color: 0x60a5fa,
+            pos: [560, -220, -260],
+          },
+          {
+            geo: new THREE.OctahedronGeometry(60, 0),
+            color: 0xc084fc,
+            pos: [0, 380, -420],
+          },
         ];
         shapeConfigs.forEach((cfg) => {
           const mat = new THREE.MeshBasicMaterial({
@@ -1590,7 +2340,11 @@
           opacity: 0.18,
         });
         const wireMesh = new THREE.Mesh(options.geometry, wireMat);
-        wireMesh.position.set(options.wirePos[0], options.wirePos[1], options.wirePos[2]);
+        wireMesh.position.set(
+          options.wirePos[0],
+          options.wirePos[1],
+          options.wirePos[2],
+        );
         scene.add(wireMesh);
 
         let visible = false;
@@ -1744,11 +2498,17 @@
           }
         });
 
-        window.addEventListener("scroll", () => {
-          const max = document.documentElement.scrollHeight - window.innerHeight;
-          progress.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : "0%";
-          document.body.classList.toggle("nav-scrolled", window.scrollY > 30);
-        }, { passive: true });
+        window.addEventListener(
+          "scroll",
+          () => {
+            const max =
+              document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width =
+              max > 0 ? `${(window.scrollY / max) * 100}%` : "0%";
+            document.body.classList.toggle("nav-scrolled", window.scrollY > 30);
+          },
+          { passive: true },
+        );
 
         document.querySelectorAll(".magnetic").forEach((el) => {
           el.addEventListener("mousemove", (e) => {
@@ -1771,6 +2531,43 @@
         };
       })();
 
+      (function initSmoothMotionEnhancements() {
+        const links = document.querySelectorAll(".nav-link");
+        const sections = [...document.querySelectorAll("section[id]")];
+
+        const updateActive = () => {
+          const point = window.scrollY + window.innerHeight * 0.35;
+          let current = sections[0]?.id;
+          sections.forEach((section) => {
+            if (section.offsetTop <= point) current = section.id;
+          });
+          links.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + current,
+            );
+          });
+        };
+
+        updateActive();
+        window.addEventListener("scroll", updateActive, { passive: true });
+
+        document
+          .querySelectorAll(".tech-icon-3d, .contact-card")
+          .forEach((card) => {
+            card.addEventListener("pointermove", (e) => {
+              if (window.innerWidth < 769) return;
+              const r = card.getBoundingClientRect();
+              const x = (e.clientX - r.left) / r.width - 0.5;
+              const y = (e.clientY - r.top) / r.height - 0.5;
+              card.style.transform = `perspective(900px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg) translateY(-4px)`;
+            });
+            card.addEventListener(
+              "pointerleave",
+              () => (card.style.transform = ""),
+            );
+          });
+      })();
     </script>
   </body>
 </html>
