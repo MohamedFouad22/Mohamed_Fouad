@@ -946,6 +946,64 @@
           width: 72%;
         }
       }
+
+      @media (max-width: 768px) {
+        nav {
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+        }
+
+        .nav-container {
+          height: 58px;
+          padding: 0 10px;
+          border-bottom-left-radius: 18px;
+          border-bottom-right-radius: 18px;
+          overflow: hidden;
+        }
+
+        .nav-links-list {
+          width: 100% !important;
+          min-width: 0 !important;
+          gap: 0 !important;
+          justify-content: space-around !important;
+          align-items: center;
+          letter-spacing: 0.08em !important;
+          font-size: 8px !important;
+          line-height: 1;
+        }
+
+        .nav-links-list li {
+          flex: 0 1 auto;
+          min-width: 0;
+        }
+
+        .nav-links-list a {
+          display: block;
+          white-space: nowrap;
+          padding: 8px 4px;
+        }
+
+        .nav-link.active::after {
+          bottom: 1px;
+          height: 1.5px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .nav-container {
+          padding: 0 6px;
+        }
+
+        .nav-links-list {
+          font-size: 7px !important;
+          letter-spacing: 0.045em !important;
+        }
+
+        .nav-links-list a {
+          padding-left: 2px;
+          padding-right: 2px;
+        }
+      }
     </style>
   </head>
   <body class="overflow-x-hidden">
@@ -966,7 +1024,7 @@
     <div
       class="glow-orb w-64 h-64 md:w-96 md:h-96 bg-blue-600/10 bottom-[10%] left-[-5%]"
     ></div>
-    <nav class="fixed top-0 w-full z-[100] px-4">
+    <nav class="fixed top-0 w-full z-[100] px-2 sm:px-4">
       <div class="nav-container nav-blur">
         <h1
           class="hidden md:block text-lg md:text-2xl font-extrabold tracking-tight text-violet-500"
