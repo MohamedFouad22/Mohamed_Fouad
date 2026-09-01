@@ -43,6 +43,59 @@
           transparent 0
         );
         background-size: 40px 40px;
+        position: relative;
+      }
+
+      .ambient-blob {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(110px);
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.35;
+      }
+
+      .ambient-blob.one {
+        width: 500px;
+        height: 500px;
+        background: #7c3aed;
+        top: -150px;
+        left: -150px;
+        animation: drift1 22s ease-in-out infinite;
+      }
+
+      .ambient-blob.two {
+        width: 420px;
+        height: 420px;
+        background: #4c1d95;
+        bottom: -120px;
+        right: -120px;
+        animation: drift2 26s ease-in-out infinite;
+      }
+
+      @keyframes drift1 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(60px, 40px) scale(1.1);
+        }
+      }
+
+      @keyframes drift2 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(-50px, -30px) scale(1.08);
+        }
+      }
+
+      .page-content {
+        position: relative;
+        z-index: 1;
       }
 
       .glass-card {
@@ -55,17 +108,22 @@
       .tech-badge {
         background: rgba(139, 92, 246, 0.08);
         border: 1px solid rgba(139, 92, 246, 0.18);
-        transition: 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
       .tech-badge:hover {
         transform: translateY(-3px);
         background: rgba(139, 92, 246, 0.16);
+        box-shadow: 0 10px 24px rgba(139, 92, 246, 0.18);
       }
 
       .feature-item {
         position: relative;
         padding-left: 1.5rem;
+        transition: transform 0.3s ease;
       }
 
       .feature-item::before {
@@ -80,10 +138,23 @@
         box-shadow: 0 0 15px #8b5cf6;
       }
 
+      .feature-item:hover {
+        transform: translateX(4px);
+      }
+
       .gradient-text {
         background: linear-gradient(to right, #ffffff, #a78bfa);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+
+      .hero-image-wrap {
+        perspective: 1200px;
+      }
+
+      .hero-image {
+        transition: transform 0.15s ease-out;
+        transform-style: preserve-3d;
       }
 
       .hero-image::after {
@@ -97,12 +168,49 @@
         );
         border-radius: 1.5rem;
       }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes revealUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .btn-pop {
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .btn-pop:hover {
+        transform: translateY(-3px) scale(1.02);
+      }
+
+      .stat-card {
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(139, 92, 246, 0.4);
+      }
     </style>
   </head>
 
   <body class="grid-bg min-h-screen">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-      <div class="mb-12">
+    <div class="ambient-blob one"></div>
+    <div class="ambient-blob two"></div>
+
+    <div class="page-content max-w-7xl mx-auto px-6 lg:px-10 py-10">
+      <div class="mb-12 reveal" style="animation-delay: 0s">
         <a
           href="../index.html"
           class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl glass-card text-sm font-semibold hover:bg-white/10 transition"
@@ -121,15 +229,22 @@
       <div class="grid lg:grid-cols-2 gap-14 items-start">
         <div>
           <h1
-            class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 gradient-text"
+            class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 gradient-text reveal"
+            style="animation-delay: 0.1s"
           >
             Nova Chat <br />
             <span class="text-violet-500">Application</span>
           </h1>
 
-          <div class="w-24 h-1 rounded-full bg-violet-600 mb-8"></div>
+          <div
+            class="w-24 h-1 rounded-full bg-violet-600 mb-8 reveal"
+            style="animation-delay: 0.2s"
+          ></div>
 
-          <p class="text-gray-400 text-lg leading-relaxed mb-10">
+          <p
+            class="text-gray-400 text-lg leading-relaxed mb-10 reveal"
+            style="animation-delay: 0.25s"
+          >
             A production-ready, highly secure real-time messaging platform
             backend engine. Nova Chat features an advanced cloud architecture
             engineered to deliver instantaneous communication, military-grade
@@ -138,8 +253,13 @@
             data lag.
           </p>
 
-          <div class="grid sm:grid-cols-2 gap-5 mb-10">
-            <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+          <div
+            class="grid sm:grid-cols-2 gap-5 mb-10 reveal"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="glass-card stat-card rounded-3xl p-6 flex items-center gap-4"
+            >
               <div
                 class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center"
               >
@@ -156,7 +276,9 @@
               </div>
             </div>
 
-            <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+            <div
+              class="glass-card stat-card rounded-3xl p-6 flex items-center gap-4"
+            >
               <div
                 class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center"
               >
@@ -174,11 +296,14 @@
             </div>
           </div>
 
-          <div class="flex flex-wrap gap-4 mb-12">
+          <div
+            class="flex flex-wrap gap-4 mb-12 reveal"
+            style="animation-delay: 0.35s"
+          >
             <a
               href="https://documenter.getpostman.com/view/43128963/2sBXwmSDxe"
               target="_blank"
-              class="px-8 py-4 rounded-2xl bg-violet-600 hover:bg-violet-700 transition font-bold flex items-center gap-3 shadow-lg shadow-violet-600/20"
+              class="btn-pop px-8 py-4 rounded-2xl bg-violet-600 hover:bg-violet-700 transition font-bold flex items-center gap-3 shadow-lg shadow-violet-600/20"
             >
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
               API Documentation
@@ -187,14 +312,14 @@
             <a
               href="https://github.com/MohamedFouad22/Nova_Chat-Application.git"
               target="_blank"
-              class="px-8 py-4 rounded-2xl glass-card hover:bg-white/10 transition font-bold flex items-center gap-3"
+              class="btn-pop px-8 py-4 rounded-2xl glass-card hover:bg-white/10 transition font-bold flex items-center gap-3"
             >
               <i class="fa-brands fa-github"></i>
               Github Repo
             </a>
           </div>
 
-          <div>
+          <div class="reveal" style="animation-delay: 0.4s">
             <h3 class="text-xl font-bold flex items-center gap-3 mb-6">
               <i class="fa-solid fa-layer-group text-violet-500"></i>
               Engine Architecture Stack
@@ -261,19 +386,28 @@
         </div>
 
         <div class="space-y-8">
-          <div class="glass-card rounded-[2rem] p-4">
-            <div
-              class="hero-image relative rounded-[1.5rem] overflow-hidden aspect-video border border-white/5"
-            >
-              <img
-                src="../assets/Nova ChatApllicatio.png"
-                alt="Nova Chat Preview"
-                class="w-full h-full object-cover"
-              />
+          <div
+            class="glass-card rounded-[2rem] p-4 reveal"
+            style="animation-delay: 0.15s"
+          >
+            <div class="hero-image-wrap">
+              <div
+                id="heroImage"
+                class="hero-image relative rounded-[1.5rem] overflow-hidden aspect-video border border-white/5"
+              >
+                <img
+                  src="../assets/Nova ChatApllicatio.png"
+                  alt="Nova Chat Preview"
+                  class="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
 
-          <div class="glass-card rounded-[2rem] p-8 md:p-10">
+          <div
+            class="glass-card rounded-[2rem] p-8 md:p-10 reveal"
+            style="animation-delay: 0.45s"
+          >
             <h3 class="text-2xl font-bold flex items-center gap-3 mb-8">
               <i class="fa-solid fa-star text-yellow-500"></i>
               Engine Core Capabilities
@@ -346,10 +480,34 @@
       </div>
     </div>
 
-    <footer class="border-t border-white/5 mt-20 py-10 text-center">
+    <footer
+      class="page-content border-t border-white/5 mt-20 py-10 text-center"
+    >
       <p class="text-gray-500 text-sm font-medium uppercase tracking-[4px]">
         © 2026 Mohamed Fouad . All Rights Reserved.
       </p>
     </footer>
+
+    <script>
+      const heroWrap = document.querySelector(".hero-image-wrap");
+      const heroImage = document.getElementById("heroImage");
+
+      if (
+        window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+      ) {
+        heroWrap.addEventListener("mousemove", (e) => {
+          const rect = heroWrap.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          const rotateX = (y * -10).toFixed(2);
+          const rotateY = (x * 10).toFixed(2);
+          heroImage.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        heroWrap.addEventListener("mouseleave", () => {
+          heroImage.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+        });
+      }
+    </script>
   </body>
 </html>
