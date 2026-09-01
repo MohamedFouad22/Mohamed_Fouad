@@ -1267,7 +1267,7 @@
             class="stats-card interactive-card reveal-3d rounded-[26px] p-6 md:p-8 text-center"
           >
             <div class="stats-icon"><i class="fa-solid fa-award"></i></div>
-            <div class="stats-number" data-count="3">0</div>
+            <div class="stats-number" data-count="4">0</div>
             <p>Certificates</p>
             <span>Continuous learning</span>
           </div>
@@ -1678,35 +1678,57 @@
               </div>
             </div>
             <div
-              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40 md:col-span-2"
+              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
             >
-              <div class="grid md:grid-cols-[minmax(0,340px)_1fr]">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="./assets/Introduction to Git and GitHub.jpg"
+                  class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
+                />
                 <div
-                  class="relative aspect-[4/3] md:aspect-auto overflow-hidden"
+                  class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
+                  ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
                 >
-                  <img
-                    src="./assets/Introduction to Git and GitHub.jpg"
-                    class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
-                  />
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
-                  ></div>
-                  <span
-                    class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
-                    ><i class="fa-solid fa-award text-[10px]"></i>
-                    Certified</span
-                  >
-                </div>
-                <div class="p-6 flex flex-col justify-center">
-                  <h4 class="text-xl font-extrabold mb-2">
-                    Introduction to Git and GitHub
-                  </h4>
-                  <p class="text-gray-400 text-sm leading-relaxed">
-                    Comprehensive program focused on Git, GitHub, version
-                    control workflows, branching strategies, collaboration, and
-                    repository management.
-                  </p>
-                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-extrabold mb-2">
+                  Introduction to Git and GitHub
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Comprehensive program focused on Git, GitHub, version control
+                  workflows, branching strategies, collaboration, and repository
+                  management.
+                </p>
+              </div>
+            </div>
+            <div
+              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
+            >
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="./assets/AWS Cloud Technical Essentials.jpg"
+                  class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
+                  ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
+                >
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-extrabold mb-2">
+                  AWS Cloud Technical Essentials
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Comprehensive program focused on system design, database
+                  management, performance optimization, and building scalable
+                  enterprise backend solutions.
+                </p>
               </div>
             </div>
           </div>
