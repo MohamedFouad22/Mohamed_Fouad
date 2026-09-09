@@ -1364,74 +1364,151 @@
         .nav-links-list, .nav-container > .hidden.md\:flex { display: none !important; }
         .mobile-menu-btn {
           display: flex;
-          width: 38px;
-          height: 38px;
+          width: 40px;
+          height: 40px;
           align-items: center;
           justify-content: center;
           border: 1px solid rgba(139,92,246,.28);
-          border-radius: 12px;
+          border-radius: 13px;
           background: rgba(139,92,246,.07);
-          color: #c4b5fd;
+          color: #7c3aed;
           cursor: pointer;
           transition: .3s ease;
+          position: relative;
+          z-index: 10002;
         }
-        .mobile-menu-btn.active { background: rgba(139,92,246,.18); border-color: rgba(167,139,250,.55); }
+        .mobile-menu-btn.active { background: rgba(139,92,246,.14); border-color: rgba(139,92,246,.45); }
         .mobile-menu-btn i { transition: transform .3s ease; }
         .mobile-menu-btn.active i { transform: rotate(90deg); }
         .mobile-menu {
-          position: absolute;
-          top: calc(100% + 10px);
-          right: 0;
-          width: min(290px, calc(100vw - 24px));
-          padding: 10px;
-          z-index: 300;
-          border: 1px solid rgba(139,92,246,.24);
-          border-radius: 20px;
-          background: rgba(8,4,28,.94);
-          backdrop-filter: blur(24px);
-          box-shadow: 0 25px 80px rgba(0,0,0,.4), 0 0 35px rgba(139,92,246,.12);
+          position: fixed;
+          inset: 0;
+          width: 100%;
+          height: 100dvh;
+          padding: 26px 16px;
+          z-index: 10000;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          background: rgba(3,1,15,.72);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
           opacity: 0;
           visibility: hidden;
-          transform: translateY(-10px) scale(.97);
-          transform-origin: top right;
+          pointer-events: none;
+          transition: .28s ease;
+          overflow-y: auto;
+        }
+        .mobile-menu.open { opacity: 1; visibility: visible; pointer-events: auto; }
+        .mobile-menu-panel {
+          width: min(620px, 100%);
+          margin-top: 42px;
+          border: 1px solid rgba(167,139,250,.28);
+          border-radius: 26px;
+          background: rgba(7,3,28,.96);
+          box-shadow: 0 35px 100px rgba(0,0,0,.55), 0 0 60px rgba(139,92,246,.12);
+          padding: 20px 18px 18px;
+          transform: translateY(-18px) scale(.98);
           transition: .28s ease;
         }
-        .mobile-menu.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; }
-        .mobile-menu a, .mobile-menu button {
+        .mobile-menu.open .mobile-menu-panel { transform: translateY(0) scale(1); }
+        .mobile-menu-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 14px;
+          padding: 2px 6px 14px;
+        }
+        .mobile-menu-title {
+          font-size: 23px;
+          font-weight: 800;
+          color: #fff;
+          margin-top: 7px;
+        }
+        .mobile-menu-close {
+          width: 40px;
+          height: 40px;
+          border-radius: 13px;
+          border: 1px solid rgba(255,255,255,.08);
+          background: rgba(255,255,255,.04);
+          color: #cbd5e1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        .mobile-menu-search {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin: 0 4px 12px;
+          padding: 12px 14px;
+          border: 1px solid rgba(255,255,255,.08);
+          border-radius: 15px;
+          background: rgba(255,255,255,.035);
+          color: #64748b;
+        }
+        .mobile-menu-search input {
+          flex: 1;
+          min-width: 0;
+          outline: none;
+          border: 0;
+          background: transparent;
+          color: #fff;
+          font-size: 12px;
+        }
+        .mobile-menu-search input::placeholder { color: #64748b; }
+        .mobile-menu-search kbd, .mobile-menu-items kbd {
+          padding: 3px 6px;
+          border: 1px solid rgba(255,255,255,.1);
+          border-radius: 6px;
+          background: rgba(255,255,255,.04);
+          color: #64748b;
+          font-size: 8px;
+        }
+        .mobile-menu-items {
+          padding: 4px 2px 8px;
+          max-height: 47dvh;
+          overflow-y: auto;
+        }
+        .mobile-menu-item, .mobile-menu-action {
           width: 100%;
           display: flex;
           align-items: center;
           gap: 12px;
-          padding: 12px 13px;
-          border-radius: 13px;
-          color: #cbd5e1;
-          background: transparent;
+          padding: 12px 10px;
           border: 0;
-          font-size: 11px;
-          font-weight: 800;
-          letter-spacing: .12em;
-          text-transform: uppercase;
-          text-decoration: none;
-          cursor: pointer;
+          border-radius: 13px;
+          background: transparent;
+          color: #cbd5e1;
           text-align: left;
+          cursor: pointer;
+          transition: .2s ease;
+          text-decoration: none;
         }
-        .mobile-menu a:hover, .mobile-menu button:hover, .mobile-menu a.active {
-          color: #fff;
-          background: rgba(139,92,246,.13);
-        }
-        .mobile-menu i { width: 18px; text-align: center; color: #a78bfa; }
+        .mobile-menu-item:hover, .mobile-menu-action:hover { background: rgba(139,92,246,.1); color: #fff; }
+        .mobile-menu-item i, .mobile-menu-action i { width: 28px; color: #a78bfa; text-align: center; font-size: 16px; }
+        .mobile-menu-item span, .mobile-menu-action span { flex: 1; font-size: 12px; font-weight: 700; }
+        .mobile-menu-item.filtered { display: none; }
         .mobile-menu-divider { height: 1px; background: rgba(255,255,255,.09); margin: 8px 4px; }
-        .mobile-menu-section-label { padding: 8px 13px 5px; font-size: 8px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #94a3b8; }
-        body.light-mode .mobile-menu-section-label { color: #64748b; }
-        body.light-mode .mobile-menu { background: rgba(255,255,255,.95); border-color: rgba(124,58,237,.18); box-shadow: 0 25px 70px rgba(30,41,59,.18); }
-        body.light-mode .mobile-menu a, body.light-mode .mobile-menu button { color: #334155; }
-        body.light-mode .mobile-menu a:hover, body.light-mode .mobile-menu button:hover, body.light-mode .mobile-menu a.active { color: #4c1d95; background: rgba(124,58,237,.08); }
+        .mobile-menu-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .mobile-menu-action { border: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.025); }
+        .mobile-menu-action span { font-size: 10px; letter-spacing: .05em; }
+        body.light-mode .mobile-menu { background: rgba(226,229,242,.72); }
+        body.light-mode .mobile-menu-panel { background: rgba(255,255,255,.97); border-color: rgba(124,58,237,.18); box-shadow: 0 35px 90px rgba(30,41,59,.22), 0 0 50px rgba(124,58,237,.08); }
+        body.light-mode .mobile-menu-title { color: #0f172a; }
+        body.light-mode .mobile-menu-close { color: #475569; background: rgba(15,23,42,.04); border-color: rgba(15,23,42,.08); }
+        body.light-mode .mobile-menu-search { background: #f8fafc; border-color: rgba(15,23,42,.08); }
+        body.light-mode .mobile-menu-search input { color: #0f172a; }
+        body.light-mode .mobile-menu-item, body.light-mode .mobile-menu-action { color: #334155; }
+        body.light-mode .mobile-menu-item:hover, body.light-mode .mobile-menu-action:hover { color: #4c1d95; background: rgba(124,58,237,.08); }
+        body.light-mode .mobile-menu-action { border-color: rgba(15,23,42,.08); background: #f8fafc; }
+        body.light-mode .mobile-menu-divider { background: rgba(15,23,42,.09); }
         .service-card { min-height: 270px; }
         .timeline { padding-left: 18px; }
         .timeline-item { padding-left: 22px; }
         .command-overlay { padding-top: 8vh; }
       }
-
     </style>
   </head>
   <body class="overflow-x-hidden">
@@ -1505,18 +1582,34 @@
           <i class="fa-solid fa-bars"></i>
         </button>
         <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-          <div class="mobile-menu-section-label">Navigation</div>
-          <a href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a>
-          <a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a>
-          <a href="#stats"><i class="fa-solid fa-chart-simple"></i><span>Stats</span></a>
-          <a href="#services"><i class="fa-solid fa-layer-group"></i><span>Services</span></a>
-          <a href="#journey"><i class="fa-solid fa-route"></i><span>Journey</span></a>
-          <a href="#portfolio"><i class="fa-solid fa-code"></i><span>Portfolio</span></a>
-          <a href="#contact"><i class="fa-solid fa-paper-plane"></i><span>Contact</span></a>
-          <div class="mobile-menu-divider"></div>
-          <div class="mobile-menu-section-label">Quick actions</div>
-          <button id="mobileThemeBtn" type="button"><i class="fa-solid fa-moon"></i><span>Light / Dark Mode</span></button>
-          <button id="mobileCommandBtn" type="button"><i class="fa-solid fa-terminal"></i><span>Command Center</span></button>
+          <div class="mobile-menu-panel">
+            <div class="mobile-menu-head">
+              <div>
+                <span class="eyebrow"><i class="fa-solid fa-terminal"></i> Quick Navigation</span>
+                <div class="mobile-menu-title">Command Center</div>
+              </div>
+              <button id="mobileMenuClose" class="mobile-menu-close" type="button" aria-label="Close navigation"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="mobile-menu-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="mobileMenuSearch" type="text" placeholder="Search a section..." autocomplete="off" />
+              <kbd>ESC</kbd>
+            </div>
+            <div id="mobileMenuItems" class="mobile-menu-items">
+              <a class="mobile-menu-item" href="#home"><i class="fa-solid fa-house"></i><span>Home</span><kbd>01</kbd></a>
+              <a class="mobile-menu-item" href="#about"><i class="fa-solid fa-user"></i><span>About</span><kbd>02</kbd></a>
+              <a class="mobile-menu-item" href="#stats"><i class="fa-solid fa-chart-simple"></i><span>Stats</span><kbd>03</kbd></a>
+              <a class="mobile-menu-item" href="#services"><i class="fa-solid fa-bolt"></i><span>Services</span><kbd>04</kbd></a>
+              <a class="mobile-menu-item" href="#journey"><i class="fa-solid fa-route"></i><span>Journey</span><kbd>05</kbd></a>
+              <a class="mobile-menu-item" href="#portfolio"><i class="fa-solid fa-code"></i><span>Portfolio</span><kbd>06</kbd></a>
+              <a class="mobile-menu-item" href="#contact"><i class="fa-solid fa-paper-plane"></i><span>Contact</span><kbd>07</kbd></a>
+            </div>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-menu-actions">
+              <button id="mobileThemeBtn" class="mobile-menu-action" type="button"><i class="fa-solid fa-moon"></i><span>Light / Dark</span></button>
+              <button id="mobileCommandBtn" class="mobile-menu-action" type="button"><i class="fa-solid fa-terminal"></i><span>Command Center</span></button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -3254,38 +3347,59 @@
       (function initMobileNavigation() {
         const btn = document.getElementById("mobileMenuBtn");
         const menu = document.getElementById("mobileMenu");
+        const closeBtn = document.getElementById("mobileMenuClose");
         const theme = document.getElementById("mobileThemeBtn");
         const command = document.getElementById("mobileCommandBtn");
-        const links = [...document.querySelectorAll("#mobileMenu a")];
+        const search = document.getElementById("mobileMenuSearch");
+        const items = [...document.querySelectorAll("#mobileMenuItems .mobile-menu-item")];
+
         const close = () => {
           btn?.classList.remove("active");
           btn?.setAttribute("aria-expanded", "false");
           menu?.classList.remove("open");
           menu?.setAttribute("aria-hidden", "true");
+          if (search) search.value = "";
+          items.forEach((item) => item.classList.remove("filtered"));
+          document.body.style.overflow = "";
         };
+
+        const open = () => {
+          if (window.innerWidth > 768) return;
+          btn?.classList.add("active");
+          btn?.setAttribute("aria-expanded", "true");
+          menu?.classList.add("open");
+          menu?.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          setTimeout(() => search?.focus(), 180);
+        };
+
         btn?.addEventListener("click", (e) => {
           e.stopPropagation();
-          const open = !menu.classList.contains("open");
-          btn.classList.toggle("active", open);
-          btn.setAttribute("aria-expanded", String(open));
-          menu.classList.toggle("open", open);
-          menu.setAttribute("aria-hidden", String(!open));
+          menu.classList.contains("open") ? close() : open();
         });
-        links.forEach((link) => link.addEventListener("click", close));
-        document.addEventListener("click", (e) => {
-          if (window.innerWidth > 768 || !menu?.classList.contains("open")) return;
-          if (!menu.contains(e.target) && !btn.contains(e.target)) close();
+        closeBtn?.addEventListener("click", close);
+        items.forEach((item) => item.addEventListener("click", close));
+        search?.addEventListener("input", () => {
+          const query = search.value.trim().toLowerCase();
+          items.forEach((item) => {
+            item.classList.toggle("filtered", Boolean(query) && !item.textContent.toLowerCase().includes(query));
+          });
         });
         theme?.addEventListener("click", () => {
-          const desktopTheme = document.getElementById("themeBtn");
-          desktopTheme?.click();
-          const mobileIcon = theme.querySelector("i");
-          const isLight = document.body.classList.contains("light-mode");
-          if (mobileIcon) mobileIcon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
+          document.getElementById("themeBtn")?.click();
         });
         command?.addEventListener("click", () => {
+          close();
           document.getElementById("commandBtn")?.click();
-          setTimeout(close, 80);
+        });
+        menu?.addEventListener("click", (e) => {
+          if (e.target === menu) close();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && menu?.classList.contains("open")) close();
+        });
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) close();
         });
       })();
 
@@ -3375,7 +3489,7 @@
       (function initTypingEffect() {
         const title = document.querySelector("#home h2");
         if (!title) return;
-        const words = ["Backend", "Node.js", "TypeScript", "API"];
+        const words = ["Developer", "Node.js", "TypeScript", "Nest.js","API"];
         const accent = title.querySelector("span");
         let index = 0;
         let deleting = false;
