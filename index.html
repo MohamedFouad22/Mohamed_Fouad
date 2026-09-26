@@ -684,6 +684,14 @@
         background: rgba(139, 92, 246, 0.1);
         border: 1px solid rgba(139, 92, 246, 0.2);
         box-shadow: 0 0 25px rgba(139, 92, 246, 0.08);
+        transition:
+          transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1),
+          box-shadow 0.4s ease;
+      }
+
+      .stats-card:hover .stats-icon {
+        transform: scale(1.1) rotate(-6deg);
+        box-shadow: 0 0 35px rgba(139, 92, 246, 0.28);
       }
 
       .stats-number {
@@ -775,6 +783,167 @@
 
       #backToTop:hover i {
         transform: translateY(-2px);
+      }
+
+      #whatsappFab {
+        position: fixed;
+        right: 22px;
+        bottom: 86px;
+        width: 52px;
+        height: 52px;
+        z-index: 9998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 17px;
+        color: white;
+        background: linear-gradient(145deg, #22c55e, #16a34a);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow:
+          0 15px 40px rgba(0, 0, 0, 0.35),
+          0 0 30px rgba(34, 197, 94, 0.3);
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(18px) scale(0.9);
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        text-decoration: none;
+      }
+
+      #whatsappFab::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+
+      #whatsappFab.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+
+      #whatsappFab:hover {
+        transform: translateY(-5px) scale(1.04);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.4),
+          0 0 45px rgba(34, 197, 94, 0.45);
+      }
+
+      #whatsappFab i {
+        font-size: 22px;
+      }
+
+      .section-dots {
+        position: fixed;
+        right: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9996;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .section-dot {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        cursor: pointer;
+        transition:
+          background 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        padding: 0;
+      }
+
+      .section-dot:hover {
+        transform: scale(1.25);
+        background: rgba(167, 139, 250, 0.55);
+      }
+
+      .section-dot.active {
+        background: #8b5cf6;
+        border-color: #a78bfa;
+        transform: scale(1.35);
+        box-shadow: 0 0 14px rgba(139, 92, 246, 0.7);
+      }
+
+      .section-dot-label {
+        position: absolute;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%) translateX(6px);
+        white-space: nowrap;
+        padding: 6px 11px;
+        border-radius: 8px;
+        background: rgba(10, 5, 35, 0.92);
+        border: 1px solid rgba(167, 139, 250, 0.35);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #e2e8f0;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          visibility 0.2s ease;
+        pointer-events: none;
+      }
+
+      .section-dot:hover .section-dot-label {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(0);
+      }
+
+      body.light-mode #whatsappFab::before {
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      body.light-mode .section-dot {
+        background: rgba(15, 23, 42, 0.2);
+        border-color: rgba(15, 23, 42, 0.3);
+      }
+
+      body.light-mode .section-dot.active {
+        background: #7c3aed;
+        border-color: #6d28d9;
+      }
+
+      body.light-mode .section-dot-label {
+        background: rgba(255, 255, 255, 0.96);
+        color: #0f172a;
+        border-color: rgba(124, 58, 237, 0.25);
+      }
+
+      @media (max-width: 1024px) {
+        .section-dots {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #whatsappFab {
+          bottom: 80px;
+          width: 46px;
+          height: 46px;
+        }
+        #whatsappFab i {
+          font-size: 19px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -1728,9 +1897,6 @@
           background: #f8fafc;
           border-color: rgba(15, 23, 42, 0.08);
         }
-        body.light-mode .mobile-menu-search input {
-          color: #0f172a;
-        }
         body.light-mode .mobile-menu-item,
         body.light-mode .mobile-menu-action {
           color: #334155;
@@ -1900,6 +2066,54 @@
     <button id="backToTop" aria-label="Back to top" title="Back to top">
       <i class="fa-solid fa-arrow-up"></i>
     </button>
+    <a
+      id="whatsappFab"
+      href="https://wa.me/201203435021"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <nav id="sectionDots" class="section-dots" aria-label="Section navigation">
+      <button class="section-dot" data-target="#home" aria-label="Go to Home">
+        <span class="section-dot-label">Home</span>
+      </button>
+      <button class="section-dot" data-target="#about" aria-label="Go to About">
+        <span class="section-dot-label">About</span>
+      </button>
+      <button class="section-dot" data-target="#stats" aria-label="Go to Stats">
+        <span class="section-dot-label">Stats</span>
+      </button>
+      <button
+        class="section-dot"
+        data-target="#services"
+        aria-label="Go to Services"
+      >
+        <span class="section-dot-label">Services</span>
+      </button>
+      <button
+        class="section-dot"
+        data-target="#journey"
+        aria-label="Go to Journey"
+      >
+        <span class="section-dot-label">Journey</span>
+      </button>
+      <button
+        class="section-dot"
+        data-target="#portfolio"
+        aria-label="Go to Portfolio"
+      >
+        <span class="section-dot-label">Portfolio</span>
+      </button>
+      <button
+        class="section-dot"
+        data-target="#contact"
+        aria-label="Go to Contact"
+      >
+        <span class="section-dot-label">Contact</span>
+      </button>
+    </nav>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="toast" id="toast">Copied successfully</div>
     <div
@@ -1969,7 +2183,7 @@
           </button>
           <a
             href="#contact"
-            class="px-4 py-1.5 rounded-full border border-violet-500/40 text-[10px] md:text-xs font-medium hover:bg-violet-500/10 transition text-white"
+            class="magnetic px-5 py-2 rounded-full btn-primary text-[10px] md:text-xs font-bold text-white shadow-lg shadow-violet-600/20"
             >Let's Talk</a
           >
         </div>
@@ -2089,7 +2303,7 @@
             Backend <br /><span class="text-violet-500">Developer</span>
           </h2>
           <p
-            class="text-gray-400 text-sm md:text-base mt-4 leading-relaxed max-w-lg mx-auto lg:mx-0"
+            class="text-gray-300 text-sm md:text-base mt-4 leading-relaxed max-w-lg mx-auto lg:mx-0"
           >
             Specializing in building robust, scalable server-side architectures
             and efficient database solutions.
@@ -2976,6 +3190,40 @@
                 </p>
               </div>
             </div>
+            <div
+              class="project-card interactive-card rounded-[28px] p-0 overflow-hidden hover:border-violet-500/40"
+            >
+              <div
+                class="relative aspect-[4/3] overflow-hidden zoomable"
+                data-lightbox
+              >
+                <img
+                  src="./assets/AWS Fundamentals Building Serverless Applications_page-0001.jpg"
+                  class="w-full h-full object-contain bg-black/40 transition-transform duration-700 hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0a0518] via-transparent to-transparent pointer-events-none"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-violet-300"
+                  ><i class="fa-solid fa-award text-[10px]"></i> Certified</span
+                >
+                <span class="zoom-hint"
+                  ><i class="fa-solid fa-expand"></i
+                ></span>
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-extrabold mb-2">
+                  AWS Fundamentals: Building Serverless Applications
+                </h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                  Demonstrated foundational knowledge of AWS cloud architecture,
+                  focusing on building and deploying scalable serverless
+                  applications using key AWS services such as AWS Lambda, API
+                  Gateway, DynamoDB, and Amazon S3.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         <div id="tech" class="content-pane">
@@ -3475,11 +3723,18 @@
         }
       }
 
+      const whatsappFab = document.getElementById("whatsappFab");
+
       window.addEventListener(
         "scroll",
         () => {
-          if (window.scrollY > 520) backToTop.classList.add("show");
-          else backToTop.classList.remove("show");
+          if (window.scrollY > 520) {
+            backToTop.classList.add("show");
+            whatsappFab?.classList.add("show");
+          } else {
+            backToTop.classList.remove("show");
+            whatsappFab?.classList.remove("show");
+          }
           animateStats();
         },
         { passive: true },
@@ -4040,6 +4295,38 @@
         window.addEventListener("resize", () => {
           if (window.innerWidth > 768) close();
         });
+      })();
+
+      (function initSectionDots() {
+        const dots = [...document.querySelectorAll(".section-dot")];
+        if (!dots.length) return;
+
+        const sectionEls = dots
+          .map((dot) => document.querySelector(dot.dataset.target))
+          .filter(Boolean);
+
+        const update = () => {
+          const point = window.scrollY + window.innerHeight * 0.4;
+          let activeIndex = 0;
+          sectionEls.forEach((section, i) => {
+            if (section.offsetTop <= point) activeIndex = i;
+          });
+          dots.forEach((dot, i) =>
+            dot.classList.toggle("active", i === activeIndex),
+          );
+        };
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            document
+              .querySelector(dot.dataset.target)
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
       })();
 
       (function initCommandCenter() {
