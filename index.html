@@ -1179,23 +1179,80 @@
         box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
       }
       @media (max-width: 480px) {
+        .tabs {
+          gap: 4px;
+          margin: 32px auto;
+        }
+
         .tabs button {
-          font-size: 12px;
-          gap: 5px;
-          padding: 11px 6px;
+          font-size: 11px;
+          gap: 4px;
+          padding: 10px 5px;
+          white-space: nowrap;
         }
-        .g3 {
-          gap: 14px;
+
+        .tabs button i {
+          font-size: 10px;
         }
+
+        .g3,
+        .g2 {
+          gap: 10px;
+        }
+
         .g3 .pc .pb {
-          padding: 16px;
+          padding: 12px;
         }
+
         .g3 .pc .pb h4 {
-          font-size: 16px;
+          font-size: 13px;
         }
+
         .g3 .pc .pb p {
+          font-size: 10px;
+          line-height: 1.45;
+        }
+
+        .g3 .pc .chip {
+          padding: 4px 6px;
+          font-size: 8.5px;
+        }
+
+        .g3 .pc .go {
+          font-size: 9px;
+          padding: 8px 7px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        section {
+          padding-inline: 4vw;
+        }
+
+        .g3,
+        .g2 {
+          gap: 8px;
+        }
+
+        .g3 .pc .pb {
+          padding: 10px;
+        }
+
+        .g3 .pc .pb h4 {
           font-size: 12px;
-          line-height: 1.55;
+        }
+
+        .g3 .pc .pb p {
+          font-size: 9px;
+        }
+
+        .g3 .pc .chip {
+          font-size: 8px;
+          padding: 3px 5px;
+        }
+
+        .g3 .pc .go {
+          font-size: 8.5px;
         }
       }
       .pane {
@@ -1242,12 +1299,64 @@
         }
       }
       @media (max-width: 760px) {
-        .g3,
-        .g2 {
-          grid-template-columns: 1fr;
+        .g3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
         }
+
+        .g2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
+
         .g2 > .spot:last-child:nth-child(odd) {
-          width: auto;
+          grid-column: 1 / -1;
+          width: 100%;
+        }
+
+        .g3 .pc .pb {
+          padding: 13px;
+        }
+
+        .g3 .pc .pb h4 {
+          font-size: 14px;
+          line-height: 1.3;
+          margin-bottom: 5px;
+        }
+
+        .g3 .pc .pb p {
+          font-size: 11px;
+          line-height: 1.5;
+        }
+
+        .g3 .pc .chips {
+          gap: 5px;
+          margin: 10px 0;
+        }
+
+        .g3 .pc .chip {
+          padding: 4px 7px;
+          font-size: 9px;
+        }
+
+        .g3 .pc .go {
+          padding: 9px 8px;
+          border-radius: 10px;
+          font-size: 10px;
+        }
+
+        .g3 .pc .img {
+          aspect-ratio: 16 / 9;
+        }
+
+        .g3 .pc .idx {
+          top: 8px;
+          left: 8px;
+          min-width: 28px;
+          height: 27px;
+          padding: 0 8px;
+          border-radius: 9px;
+          font-size: 10px;
         }
       }
       .pc {
