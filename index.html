@@ -243,6 +243,8 @@
         font-size: 20px;
         color: var(--acc);
         letter-spacing: 0.02em;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
       .links {
         display: flex;
@@ -270,6 +272,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        flex-shrink: 0;
       }
       .ibtn {
         width: 38px;
@@ -281,6 +284,7 @@
         display: grid;
         place-items: center;
         cursor: pointer;
+        flex-shrink: 0;
         transition:
           transform 0.3s,
           background 0.3s;
@@ -300,7 +304,12 @@
           display: grid;
         }
       }
-      @media (max-width: 560px) {
+      .cta-nav {
+        white-space: nowrap;
+        flex-shrink: 0;
+        line-height: 1.2;
+      }
+      @media (max-width: 640px) {
         .cta-nav {
           display: none;
         }
@@ -1519,23 +1528,117 @@
         position: relative;
         z-index: 2;
       }
-      .ct span,
-      .ct a {
+      .ct span {
         font-size: 15px;
         font-weight: 600;
         position: relative;
         z-index: 2;
       }
-      .ct a:hover {
+      a.ct {
+        color: inherit;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          border-color 0.35s,
+          box-shadow 0.35s,
+          background 0.5s;
+      }
+      a.ct:hover {
+        transform: translateX(6px);
+      }
+      .ctx {
+        flex: 1;
+        min-width: 0;
+        position: relative;
+        z-index: 2;
+      }
+      .ctx span {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .ctar {
+        position: relative;
+        z-index: 2;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
         color: var(--acc);
+        border: 1px solid rgba(139, 92, 246, 0.38);
+        background: rgba(139, 92, 246, 0.1);
+        transition:
+          transform 0.3s,
+          background 0.3s,
+          color 0.3s,
+          box-shadow 0.3s;
+      }
+      a.ct:hover .ctar {
+        background: var(--v);
+        color: #fff;
+        transform: translateX(4px);
+        box-shadow: 0 10px 24px rgba(139, 92, 246, 0.45);
       }
       .cta {
         padding: 48px 32px;
         text-align: center;
+        background:
+          radial-gradient(
+            circle at 50% 0%,
+            rgba(139, 92, 246, 0.2),
+            transparent 65%
+          ),
+          var(--card);
+        border-color: rgba(139, 92, 246, 0.32);
+      }
+      .cta::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 12%;
+        right: 12%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--v),
+          var(--b),
+          transparent
+        );
       }
       .cta > * {
         position: relative;
         z-index: 2;
+      }
+      .mailbtn {
+        border-radius: 18px;
+        padding: 16px 20px;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .mailbtn > span:first-child {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .mailbtn .snd {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--acc);
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+      .mailbtn .snd i {
+        transition: transform 0.3s;
+      }
+      .mailbtn:hover .snd i {
+        transform: translateX(4px);
       }
       .pop {
         position: fixed;
@@ -2322,21 +2425,20 @@
               Reach out directly for business inquiries, collaboration or a
               technical chat.
             </p>
-            <button
-              class="btn btn-g w-full mb-4"
-              id="copyBtn"
-              style="
-                border-radius: 18px;
-                padding: 16px 20px;
-                justify-content: space-between;
-              "
+            <a
+              href="mailto:mohmed.foouad@gmail.com?subject=Project%20Inquiry"
+              class="btn btn-g w-full mb-4 mailbtn"
+              id="mailBtn"
+              aria-label="Send an email"
             >
               <span
-                ><i class="fa-solid fa-copy mr-3 mut"></i
-                ><span id="emailText">mohmed.foouad@gmail.com</span></span
+                ><i class="fa-solid fa-envelope mr-3 mut"></i
+                >mohmed.foouad@gmail.com</span
               >
-              <span style="color: var(--acc); font-size: 13px">Copy</span>
-            </button>
+              <span class="snd"
+                >Send <i class="fa-solid fa-arrow-right text-xs"></i
+              ></span>
+            </a>
             <a
               href="https://wa.me/201203435021"
               target="_blank"
@@ -2734,7 +2836,13 @@
       );
 
       const contacts = [
-        ["envelope", "Email", "mohmed.foouad@gmail.com", "", "#a78bfa"],
+        [
+          "envelope",
+          "Email",
+          "mohmed.foouad@gmail.com",
+          "mailto:mohmed.foouad@gmail.com?subject=Project%20Inquiry",
+          "#a78bfa",
+        ],
         [
           "whatsapp",
           "WhatsApp",
@@ -2756,13 +2864,24 @@
           "https://github.com/MohamedFouad22",
           "#a3a3a3",
         ],
-        ["location-dot", "Location", "6 of October, Egypt", "", "#f472b6"],
+        [
+          "location-dot",
+          "Location",
+          "6 of October, Egypt",
+          "https://www.google.com/maps/search/?api=1&query=6+of+October+City+Egypt",
+          "#f472b6",
+        ],
       ];
       $("#ctl").innerHTML = contacts
-        .map(
-          (x) =>
-            `<div class="spot ct"><div class="ico" style="color:${x[4]};border-color:${x[4]}55;background:${x[4]}1f"><i class="${["whatsapp", "linkedin-in", "github"].includes(x[0]) ? "fa-brands" : "fa-solid"} fa-${x[0]}"></i></div><div style="min-width:0"><small>${x[1]}</small>${x[3] ? `<a href="${x[3]}" target="_blank" rel="noopener noreferrer">${x[2]}</a>` : `<span class="truncate block">${x[2]}</span>`}</div></div>`,
-        )
+        .map((x) => {
+          const fam = ["whatsapp", "linkedin-in", "github"].includes(x[0])
+            ? "fa-brands"
+            : "fa-solid";
+          const ext = x[3].startsWith("http")
+            ? ' target="_blank" rel="noopener noreferrer"'
+            : "";
+          return `<a class="spot ct" href="${x[3]}"${ext} aria-label="${x[1]}: ${x[2]}"><div class="ico" style="color:${x[4]};border-color:${x[4]}55;background:${x[4]}1f"><i class="${fam} fa-${x[0]}"></i></div><div class="ctx"><small>${x[1]}</small><span>${x[2]}</span></div><span class="ctar"><i class="fa-solid fa-arrow-right"></i></span></a>`;
+        })
         .join("");
 
       ["home", "about", "portfolio", "contact"].forEach((id) => {
@@ -3236,28 +3355,6 @@
         clearTimeout(toast.t);
         toast.t = setTimeout(() => t.classList.remove("show"), 2200);
       }
-      const mail = "mohmed.foouad@gmail.com";
-      $("#copyBtn").addEventListener("click", async () => {
-        const t = $("#emailText");
-        let ok = true;
-        try {
-          await navigator.clipboard.writeText(mail);
-        } catch (e) {
-          ok = false;
-        }
-        toast(
-          ok
-            ? "Email copied to clipboard"
-            : "Copy failed, please copy it manually",
-        );
-        if (!ok) return;
-        t.textContent = "Email copied!";
-        t.style.color = "var(--acc)";
-        setTimeout(() => {
-          t.textContent = mail;
-          t.style.color = "";
-        }, 2000);
-      });
 
       const themeI = $("#themeBtn i"),
         metaTheme = $('meta[name="theme-color"]');
