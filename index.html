@@ -526,11 +526,11 @@
         padding-bottom: 96px;
       }
       .hero .wrap {
-        max-width: 1320px;
+        max-width: 1240px;
       }
       .hg {
         display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 40px;
         align-items: center;
         width: 100%;
@@ -579,9 +579,9 @@
         display: grid;
         place-items: center;
         aspect-ratio: 1;
-        max-width: 680px;
+        max-width: 560px;
         margin: auto;
-        width: 85%;
+        width: 100%;
         user-select: none;
         -webkit-user-select: none;
       }
@@ -600,7 +600,7 @@
       .avatar img {
         position: relative;
         z-index: 2;
-        width: 80%;
+        width: 72%;
         height: auto;
         pointer-events: none;
         -webkit-user-drag: none;
@@ -724,6 +724,19 @@
           min-width: 104px;
           padding: 8px 11px;
           font-size: 12px;
+        }
+      }
+      @media (max-width: 900px) {
+        .avatar {
+          max-width: 400px;
+        }
+      }
+      @media (max-width: 480px) {
+        .avatar {
+          max-width: 340px;
+        }
+        .avatar img {
+          width: 66%;
         }
       }
       .social {
@@ -2370,9 +2383,7 @@
                 <p><span class="pr">$</span> whoami</p>
                 <p class="ac">backend-developer</p>
                 <p><span class="pr">$</span> focus --current</p>
-                <p class="ac">
-                  Node.js · TypeScript · Nest.js · APIs · Security
-                </p>
+                <p class="ac">Node.js · TypeScript · APIs · Security</p>
                 <p><span class="pr">$</span> status</p>
                 <p class="ok">
                   <i
